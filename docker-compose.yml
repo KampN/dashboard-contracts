@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  search_back_php:
+    image: kampn/php:8.0-fpm-search-dev-bullseye
+    container_name: search-back-php
+    networks:
+      - internal
+    user: runner
+    volumes:
+      - .:/srv
+      - php_home:/home/runner
+
+networks:
+  internal: ~
+
+volumes:
+  php_home: ~

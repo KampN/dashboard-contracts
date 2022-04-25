@@ -1,0 +1,19 @@
+{
+  "name": "kampn/dashboard-contracts",
+  "version": "1.0.0",
+  "type": "library",
+  "require": {
+    "php": ">=7.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kampn\\Dashboarc\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  }
+}
