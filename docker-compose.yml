@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  search_back_php:
+  dashboard_contract:
     image: kampn/php:8.0-fpm-search-dev-bullseye
-    container_name: search-back-php
+    container_name: dashboard-contract-php
     networks:
       - internal
     user: runner
