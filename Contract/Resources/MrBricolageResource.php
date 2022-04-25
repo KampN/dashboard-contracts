@@ -11,6 +11,8 @@ use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 class MrBricolageResource implements ResourceInterface {
 
 	public const RESOURCE_NAME = ResourceEnum::MR_BRICOLAGE;
+	// Allow Dashboard to merge sources from different sources using segment key as pivot
+	public const COLLAPSIBLE = true;
 
 	public const SUPPORT_SOURCES = [
 		SourceEnum::GOOGLE_ADS,

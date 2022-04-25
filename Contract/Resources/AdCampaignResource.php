@@ -13,6 +13,8 @@ use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 class AdCampaignResource implements ResourceInterface {
 
 	public const RESOURCE_NAME = ResourceEnum::AD_CAMPAIGN;
+	// Allow Dashboard to merge sources from different sources using segment key as pivot
+	public const COLLAPSIBLE = false;
 
 	public const SUPPORT_SOURCES = [
 		SourceEnum::GOOGLE_ADS,
