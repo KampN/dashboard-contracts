@@ -30,7 +30,7 @@ class MrBricolageResource implements ResourceInterface {
 			],
 			[
 				ResourceInterface::FIELD_NAME        => 'start_date',
-				ResourceInterface::FIELD_DESCRIPTION => 'Operation start date',
+				ResourceInterface::FIELD_DESCRIPTION => 'Operation start date, format : ATOM',
 				ResourceInterface::FIELD_IS_SEGMENT  => true,
 				ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
 				ResourceInterface::FIELD_SELECTABLE  => true,
@@ -38,7 +38,7 @@ class MrBricolageResource implements ResourceInterface {
 			],
 			[
 				ResourceInterface::FIELD_NAME        => 'end_date',
-				ResourceInterface::FIELD_DESCRIPTION => 'Operation end date',
+				ResourceInterface::FIELD_DESCRIPTION => 'Operation end date, format : ATOM',
 				ResourceInterface::FIELD_IS_SEGMENT  => true,
 				ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
 				ResourceInterface::FIELD_SELECTABLE  => true,
