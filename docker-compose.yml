@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  dashboard_contract:
+  dashboard_contract_php:
     image: kampn/php:8.0-fpm-search-dev-bullseye
     container_name: dashboard-contract-php
     networks:
