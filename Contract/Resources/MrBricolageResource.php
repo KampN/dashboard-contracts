@@ -37,6 +37,14 @@ class MrBricolageResource implements ResourceInterface {
 				ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 			],
 			[
+				ResourceInterface::FIELD_NAME       => 'date',
+				ResourceInterface::FIELD_DESCRIPTION => 'format : ATOM',
+				ResourceInterface::FIELD_IS_SEGMENT => true,
+				ResourceInterface::FIELD_TYPE       => FieldTypeEnum::DATETIME,
+				ResourceInterface::FIELD_SELECTABLE => true,
+				ResourceInterface::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+			],
+			[
 				ResourceInterface::FIELD_NAME        => 'end_date',
 				ResourceInterface::FIELD_DESCRIPTION => 'Operation end date, format : ATOM',
 				ResourceInterface::FIELD_IS_SEGMENT  => true,

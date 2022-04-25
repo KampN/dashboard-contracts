@@ -23,6 +23,7 @@ class AdCampaignResource implements ResourceInterface {
 			],
 			[
 				ResourceInterface::FIELD_NAME       => 'date',
+				ResourceInterface::FIELD_DESCRIPTION => 'format : ATOM',
 				ResourceInterface::FIELD_IS_SEGMENT => true,
 				ResourceInterface::FIELD_TYPE       => FieldTypeEnum::DATETIME,
 				ResourceInterface::FIELD_SELECTABLE => true,
