@@ -57,7 +57,7 @@ class AdCampaignResource implements ResourceInterface {
 		[
 			ResourceInterface::FIELD_NAME        => 'start_date',
 			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign Start Date / Facebook Ads Adset Start Date. format : ATOM',
-			ResourceInterface::FIELD_IS_SEGMENT  => true,
+			ResourceInterface::FIELD_IS_SEGMENT  => false,
 			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
 			ResourceInterface::FIELD_SELECTABLE  => true,
 			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
@@ -65,7 +65,7 @@ class AdCampaignResource implements ResourceInterface {
 		[
 			ResourceInterface::FIELD_NAME        => 'end_date',
 			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign End Date / Facebook Ads Adset End Date. format : ATOM',
-			ResourceInterface::FIELD_IS_SEGMENT  => true,
+			ResourceInterface::FIELD_IS_SEGMENT  => false,
 			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
 			ResourceInterface::FIELD_SELECTABLE  => true,
 			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
