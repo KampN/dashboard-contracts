@@ -8,6 +8,6 @@ trait ResourceServiceTrait {
 	}
 
 	public static function getServiceLocatorAlias(): string {
-		return "kampn.dashboard." . self::getResourceName() . '.service';
+		return "kampn.dashboard." . self::getResourceName() . '.service.' . self::getServiceType();
 	}
 }

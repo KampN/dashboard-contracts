@@ -11,7 +11,12 @@ interface ResourceInterface {
 	public const FIELD_SELECTABLE = 'selectable';
 	public const FIELD_OPERATORS = 'operators';
 
+	public const SERVICE_TYPE_ROWS = 'rows';
+	public const SERVICE_TYPE_TOTAL = 'total';
+
 	public static function getResourceName(): string;
+
+	public static function getServiceType(): string;
 
 	public static function getServiceLocatorAlias(): string;
 }
