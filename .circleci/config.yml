@@ -30,17 +30,6 @@ executors:
       image: ubuntu-2004:202201-02
 
 commands:
-  sf_run:
-    parameters:
-      cmd:
-        type: string
-      cmd_name:
-        type: string
-        default: sf << parameters.cmd >>
-    steps:
-      - run:
-          name: << parameters.cmd_name >>
-          command: php bin/console << parameters.cmd >>
   pu:
     parameters:
       opts:
@@ -55,7 +44,7 @@ commands:
     steps:
       - run:
           name: << parameters.cmd_name >>
-          command: php <<parameters.php_opts>> bin/phpunit << parameters.opts >>
+          command: php <<parameters.php_opts>> vendor/bin/phpunit << parameters.opts >>
 
 jobs:
   install_dependencies:
@@ -77,7 +66,6 @@ jobs:
           root: .
           paths:
             - ./vendor
-            - ./bin
 
   unit_test:
     executor: php_ci

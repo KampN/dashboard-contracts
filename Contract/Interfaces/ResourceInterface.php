@@ -11,4 +11,7 @@ interface ResourceInterface {
 	public const FIELD_SELECTABLE = 'selectable';
 	public const FIELD_OPERATORS = 'operators';
 
+	public static function getResourceName(): string;
+
+	public static function getServiceLocatorAlias(): string;
 }

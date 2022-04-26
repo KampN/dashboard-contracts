@@ -1,6 +1,6 @@
 <?php
 
-namespace Kampn\Dashboard\Contract\Enums;
+namespace Kampn\Dashboard\Contract\Enum;
 
 class OperatorEnum {
 

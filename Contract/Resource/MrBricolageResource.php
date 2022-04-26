@@ -1,20 +1,18 @@
 <?php
 
-namespace Kampn\Dashboard\Contract\Resources;
+namespace Kampn\Dashboard\Contract\Resource;
 
-
-use Kampn\Dashboard\Contract\Constants\ResourceFieldConstant;
-use Kampn\Dashboard\Contract\Enums\FieldTypeEnum;
-use Kampn\Dashboard\Contract\Enums\OperatorEnum;
-use Kampn\Dashboard\Contract\Enums\ResourceEnum;
-use Kampn\Dashboard\Contract\Enums\SourceEnum;
+use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
+use Kampn\Dashboard\Contract\Enum\FieldTypeEnum;
+use Kampn\Dashboard\Contract\Enum\ResourceEnum;
+use Kampn\Dashboard\Contract\Enum\SourceEnum;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 
-class AdCampaignResource implements ResourceInterface {
+interface MrBricolageResource extends ResourceInterface {
 
-	public const RESOURCE_NAME = ResourceEnum::AD_CAMPAIGN;
+	public const RESOURCE_NAME = ResourceEnum::MR_BRICOLAGE;
 	// Allow Dashboard to merge sources from different sources using segment key as pivot
-	public const COLLAPSIBLE = false;
+	public const COLLAPSIBLE = true;
 
 	public const SUPPORT_SOURCES = [
 		SourceEnum::GOOGLE_ADS,
@@ -23,12 +21,28 @@ class AdCampaignResource implements ResourceInterface {
 
 	public const FIELDS = [
 		[
-			ResourceInterface::FIELD_NAME        => 'ad_campaign_id',
-			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign Id / Facebook Ads Adset Id',
+			ResourceInterface::FIELD_NAME        => 'operation_name',
+			ResourceInterface::FIELD_DESCRIPTION => 'Mr Bricolage Operation name',
 			ResourceInterface::FIELD_IS_SEGMENT  => true,
 			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::TEXT,
 			ResourceInterface::FIELD_SELECTABLE  => true,
 			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceInterface::FIELD_NAME        => 'shop_id',
+			ResourceInterface::FIELD_DESCRIPTION => 'Mr Bricolage Shop Id',
+			ResourceInterface::FIELD_IS_SEGMENT  => true,
+			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceInterface::FIELD_SELECTABLE  => true,
+			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceInterface::FIELD_NAME        => 'start_date',
+			ResourceInterface::FIELD_DESCRIPTION => 'Operation start date, format : ATOM',
+			ResourceInterface::FIELD_IS_SEGMENT  => true,
+			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
+			ResourceInterface::FIELD_SELECTABLE  => true,
+			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 		],
 		[
 			ResourceInterface::FIELD_NAME        => 'date',
@@ -39,32 +53,8 @@ class AdCampaignResource implements ResourceInterface {
 			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 		],
 		[
-			ResourceInterface::FIELD_NAME        => 'name',
-			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign Name / Facebook Ads Campaign + Adset Names.',
-			ResourceInterface::FIELD_IS_SEGMENT  => false,
-			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::TEXT,
-			ResourceInterface::FIELD_SELECTABLE  => true,
-			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
-		],
-		[
-			ResourceInterface::FIELD_NAME        => 'status',
-			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign Status / Facebook Ads Adset Status. Allowed values are "ENABLED" & "PAUSED"',
-			ResourceInterface::FIELD_IS_SEGMENT  => false,
-			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::TEXT,
-			ResourceInterface::FIELD_SELECTABLE  => true,
-			ResourceInterface::FIELD_OPERATORS   => [OperatorEnum::Equal, OperatorEnum::Different],
-		],
-		[
-			ResourceInterface::FIELD_NAME        => 'start_date',
-			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign Start Date / Facebook Ads Adset Start Date. format : ATOM',
-			ResourceInterface::FIELD_IS_SEGMENT  => true,
-			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
-			ResourceInterface::FIELD_SELECTABLE  => true,
-			ResourceInterface::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
-		],
-		[
 			ResourceInterface::FIELD_NAME        => 'end_date',
-			ResourceInterface::FIELD_DESCRIPTION => 'Google Ads Campaign End Date / Facebook Ads Adset End Date. format : ATOM',
+			ResourceInterface::FIELD_DESCRIPTION => 'Operation end date, format : ATOM',
 			ResourceInterface::FIELD_IS_SEGMENT  => true,
 			ResourceInterface::FIELD_TYPE        => FieldTypeEnum::DATETIME,
 			ResourceInterface::FIELD_SELECTABLE  => true,
@@ -106,5 +96,4 @@ class AdCampaignResource implements ResourceInterface {
 			ResourceInterface::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		]
 	];
-
 }

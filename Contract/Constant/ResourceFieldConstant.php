@@ -1,10 +1,10 @@
 <?php
 
-namespace Kampn\Dashboard\Contract\Constants;
+namespace Kampn\Dashboard\Contract\Constant;
 
 
-use Kampn\Dashboard\Contract\Enums\FieldTypeEnum;
-use Kampn\Dashboard\Contract\Enums\OperatorEnum;
+use Kampn\Dashboard\Contract\Enum\FieldTypeEnum;
+use Kampn\Dashboard\Contract\Enum\OperatorEnum;
 
 class ResourceFieldConstant {
 

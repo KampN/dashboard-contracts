@@ -3,21 +3,27 @@
   "version": "1.0.0",
   "type": "library",
   "require": {
-    "php": ">=7.4|>=8.0"
+    "php": ">=7.4",
+    "symfony/dependency-injection": "^6.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "symfony/var-dumper": "^6.0"
   },
   "autoload": {
     "psr-4": {
       "Kampn\\Dashboard\\": ""
     },
     "exclude-from-classmap": [
-      "/Tests/"
+      "/tests/"
     ]
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Kampn\\Dashboard\\Tests\\": "tests/"
+    }
+  },
   "config": {
-    "bin-dir": "bin",
     "sort-packages": true
   }
 }
