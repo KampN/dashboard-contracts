@@ -3,6 +3,7 @@
 namespace Kampn\Dashboard\Tests\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
+use Kampn\Dashboard\Contract\Enum\OperatorEnum;
 use Kampn\Dashboard\Service\Query\FiltersReader;
 use PHPUnit\Framework\TestCase;
 
@@ -17,17 +18,17 @@ class FiltersReaderTest extends TestCase {
 		$this->assertEquals([
 			[
 				FilterConstant::OPERAND => 'shop_id',
-				FilterConstant::OPERATOR => '=',
+				FilterConstant::OPERATOR => OperatorEnum::EQUAL,
 				FilterConstant::VALUES => ['S205'],
 			],
 			[
 				FilterConstant::OPERAND => 'cost',
-				FilterConstant::OPERATOR => '>',
+				FilterConstant::OPERATOR => OperatorEnum::GREATER_THAN,
 				FilterConstant::VALUES => [0],
 			],
 			[
 				FilterConstant::OPERAND => 'label',
-				FilterConstant::OPERATOR => '=',
+				FilterConstant::OPERATOR => OperatorEnum::EQUAL,
 				FilterConstant::VALUES => ['kampn-monitoring'],
 			],
 		], $filters);
@@ -37,7 +38,7 @@ class FiltersReaderTest extends TestCase {
 		$str = $this->subject()->encode([
 			[
 				FilterConstant::OPERAND => 'cost',
-				FilterConstant::OPERATOR => '>',
+				FilterConstant::OPERATOR => OperatorEnum::GREATER_THAN,
 				FilterConstant::VALUES => [0],
 			]
 		]);
