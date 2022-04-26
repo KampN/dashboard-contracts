@@ -4,7 +4,7 @@ namespace Kampn\Dashboard\Service\Query;
 
 use Kampn\Dashboard\Service\Exception\FilterException;
 
-class FiltersReader {
+class FiltersEncoder {
 	public static function encode(array $data) {
 		$serialized = base64_encode(\json_encode($data, JSON_THROW_ON_ERROR));
 		return urlencode($serialized);

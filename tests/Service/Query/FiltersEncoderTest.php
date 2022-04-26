@@ -4,12 +4,12 @@ namespace Kampn\Dashboard\Tests\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
 use Kampn\Dashboard\Contract\Enum\OperatorEnum;
-use Kampn\Dashboard\Service\Query\FiltersReader;
+use Kampn\Dashboard\Service\Query\FiltersEncoder;
 use PHPUnit\Framework\TestCase;
 
-class FiltersReaderTest extends TestCase {
-	public function subject(): FiltersReader {
-		return new FiltersReader();
+class FiltersEncoderTest extends TestCase {
+	public function subject(): FiltersEncoder {
+		return new FiltersEncoder();
 	}
 
 	public function testDecode(): void {
