@@ -1,0 +1,133 @@
+version: 2.1
+
+anchor_1: &wdir
+  working_directory: ~/app
+anchor_2: &docker_auth
+  auth:
+    username: $DOCKER_LOGIN
+    password: $DOCKER_PASSWORD
+anchor_4: &staging_context
+  context: "search staging"
+anchor_9: &workflow_branch_only_filter
+  filters:
+    tags:
+      ignore: /.*/
+
+executors:
+  php:
+    <<: *wdir
+    docker:
+      - image: kampn/php:8.0-fpm-express-ci-bullseye
+        <<: *docker_auth
+  php_ci:
+    <<: *wdir
+    docker:
+      - image: kampn/php:8.0-fpm-express-ci-bullseye
+        <<: *docker_auth
+  machine:
+    <<: *wdir
+    machine:
+      image: ubuntu-2004:202201-02
+
+commands:
+  sf_run:
+    parameters:
+      cmd:
+        type: string
+      cmd_name:
+        type: string
+        default: sf << parameters.cmd >>
+    steps:
+      - run:
+          name: << parameters.cmd_name >>
+          command: php bin/console << parameters.cmd >>
+  pu:
+    parameters:
+      opts:
+        type: string
+        default: ''
+      php_opts:
+        type: string
+        default: ''
+      cmd_name:
+        type: string
+        default: Run Tests
+    steps:
+      - run:
+          name: << parameters.cmd_name >>
+          command: php <<parameters.php_opts>> bin/phpunit << parameters.opts >>
+
+jobs:
+  install_dependencies:
+    executor: php
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          key: dependency-cache-{{ checksum "composer.json" }}
+      - run:
+          name: Setup Dependencies
+          command: composer install --no-interaction --optimize-autoloader
+      - save_cache:
+          key: dependency-cache-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./vendor
+            - ./bin
+
+  unit_test:
+    executor: php_ci
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - pu:
+          opts: --log-junit test-results/phpunit/junit.xml --configuration=./phpunit.xml.dist
+      - store_test_results:
+          path: ./test-results
+
+  unit_test_coverage:
+    executor: php_ci
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - pu:
+          php_opts: -dpcov.enabled=1 -dpcov.directory=. -dpcov.exclude="~(vendor)|(src/Migrations)~"
+          opts: --log-junit test-results/phpunit/junit.xml --coverage-html=./coverage --configuration=./phpunit.xml.dist
+      - store_test_results:
+          path: ./test-results
+      - store_artifacts:
+          path: ./coverage
+
+workflows:
+  version: 2
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - install_dependencies
+      - unit_test_coverage:
+          name: "unit_test_coverage"
+          <<: *staging_context
+          requires:
+            - install_dependencies
+  ci:
+    jobs:
+      - install_dependencies:
+          <<: *workflow_branch_only_filter
+      - unit_test:
+          name: "unit_test"
+          <<: *staging_context
+          <<: *workflow_branch_only_filter
+          requires:
+            - install_dependencies

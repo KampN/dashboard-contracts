@@ -15,5 +15,9 @@
     "exclude-from-classmap": [
       "/Tests/"
     ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "sort-packages": true
   }
 }
