@@ -4,15 +4,15 @@ namespace Kampn\Dashboard\Contract\Enum;
 
 class OperatorEnum {
 
-    public const Equal = '=';
-    public const Different = '!=';
+    public const EQUAL = '=';
+    public const DIFFERENT = '!=';
 
-    public const Like = 'like';
-    public const NotLike = 'like';
+    public const LIKE = 'like';
+    public const NOT_LIKE = 'like';
 
-    public const GreaterThan = '>';
-    public const GreaterOrEqualThan = '>=';
-    public const LowerThan = '<';
-    public const LowerOrEqualThan = '<=';
+    public const GREATER_THAN = '>';
+    public const GREATER_OR_EQUAL_THAN = '>=';
+    public const LOWER_THAN = '<';
+    public const LOWER_OR_EQUAL_THAN = '<=';
 
 }
