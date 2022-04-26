@@ -13,26 +13,26 @@ class ResourceFieldConstant {
 
 	public const DEFAULT_TYPE_OPERATORS = [
 		FieldTypeEnum::TEXT     => [
-			OperatorEnum::Equal,
-			OperatorEnum::Different,
-			OperatorEnum::Like,
-			OperatorEnum::NotLike
+			OperatorEnum::EQUAL,
+			OperatorEnum::DIFFERENT,
+			OperatorEnum::LIKE,
+			OperatorEnum::NOT_LIKE
 		],
 		FieldTypeEnum::NUMERIC  => [
-			OperatorEnum::Equal,
-			OperatorEnum::Different,
-			OperatorEnum::GreaterOrEqualThan,
-			OperatorEnum::GreaterThan,
-			OperatorEnum::LowerOrEqualThan,
-			OperatorEnum::LowerThan
+			OperatorEnum::EQUAL,
+			OperatorEnum::DIFFERENT,
+			OperatorEnum::GREATER_OR_EQUAL_THAN,
+			OperatorEnum::GREATER_THAN,
+			OperatorEnum::LOWER_OR_EQUAL_THAN,
+			OperatorEnum::LOWER_THAN
 		],
 		FieldTypeEnum::DATETIME => [
-			OperatorEnum::Equal,
-			OperatorEnum::Different,
-			OperatorEnum::GreaterOrEqualThan,
-			OperatorEnum::GreaterThan,
-			OperatorEnum::LowerOrEqualThan,
-			OperatorEnum::LowerThan
+			OperatorEnum::EQUAL,
+			OperatorEnum::DIFFERENT,
+			OperatorEnum::GREATER_OR_EQUAL_THAN,
+			OperatorEnum::GREATER_THAN,
+			OperatorEnum::LOWER_OR_EQUAL_THAN,
+			OperatorEnum::LOWER_THAN
 		]
 	];
 

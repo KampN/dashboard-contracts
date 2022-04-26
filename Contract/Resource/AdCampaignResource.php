@@ -52,7 +52,7 @@ interface AdCampaignResource extends ResourceInterface {
 			ResourceInterface::FIELD_IS_SEGMENT => false,
 			ResourceInterface::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceInterface::FIELD_SELECTABLE => true,
-			ResourceInterface::FIELD_OPERATORS => [OperatorEnum::Equal, OperatorEnum::Different],
+			ResourceInterface::FIELD_OPERATORS => [OperatorEnum::EQUAL, OperatorEnum::DIFFERENT],
 		],
 		[
 			ResourceInterface::FIELD_NAME => 'start_date',
