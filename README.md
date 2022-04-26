@@ -13,7 +13,7 @@ Add this to your composer.json
 	
 
 Execute composer command 
-- `composer require KampN/dashboard-contracts:dev-main`
+- `composer require kampn/dashboard-contracts:dev-main`
  
 
 Exemple de filtres :
