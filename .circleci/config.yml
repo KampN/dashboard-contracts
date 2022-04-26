@@ -91,7 +91,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/app
-      - setup_env_ci
       - pu:
           opts: --log-junit test-results/phpunit/junit.xml --configuration=./phpunit.xml.dist
       - store_test_results:
@@ -103,7 +102,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/app
-      - setup_env_ci
       - pu:
           php_opts: -dpcov.enabled=1 -dpcov.directory=. -dpcov.exclude="~(vendor)|(src/Migrations)~"
           opts: --log-junit test-results/phpunit/junit.xml --coverage-html=./coverage --configuration=./phpunit.xml.dist
