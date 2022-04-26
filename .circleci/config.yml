@@ -113,7 +113,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - install_dependencies
       - unit_test_coverage:
