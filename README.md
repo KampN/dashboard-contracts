@@ -7,7 +7,7 @@ Add this to your composer.json
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "git@github.com:KampN/dashboard-contracts.git"
+			"url": "git@github.com:kampN/dashboard-contracts.git"
 		}
 	]
 	
