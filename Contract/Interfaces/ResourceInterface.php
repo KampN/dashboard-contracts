@@ -23,4 +23,13 @@ interface ResourceInterface {
 	public static function getServiceLocatorAlias(): string;
 
 	public function process(Query $query): array;
+
+	public function getFields(): array;
+
+	public function getField(string $fieldName): ?array;
+
+	public function getSegments(): array;
+
+	public function getSegment(string $segment): ?array;
+
 }
