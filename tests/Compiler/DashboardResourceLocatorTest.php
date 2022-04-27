@@ -3,7 +3,9 @@
 namespace Kampn\Dashboard\Tests\Compiler;
 
 use Kampn\Dashboard\Compiler\DashboardResourceLocator;
+use Kampn\Dashboard\Contract\Constant\QueryConstant;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
+use Kampn\Dashboard\Service\Query\Query;
 use Kampn\Dashboard\Tests\Configuration\Stub\AdCampaignResourceServiceStub;
 use Kampn\Dashboard\Tests\Configuration\Stub\CompilerPassStub;
 use PHPUnit\Framework\TestCase;
@@ -26,6 +28,20 @@ class DashboardResourceLocatorTest extends TestCase {
 	}
 
 	public function testCompile(): void {
+		$locatorService = self::buildLocator();
+
+		$service = $locatorService->get(AdCampaignResourceServiceStub::getServiceLocatorAlias());
+		$this->assertInstanceOf(AdCampaignResourceServiceStub::class, $service);
+
+
+		$service = $locatorService->getResourceService(
+			Query::build([QueryConstant::RESOURCE => AdCampaignResourceServiceStub::getResourceName()]),
+			AdCampaignResourceServiceStub::getServiceType(),
+		);
+		$this->assertInstanceOf(AdCampaignResourceServiceStub::class, $service);
+	}
+
+	public static function buildLocator(): DashboardResourceLocator {
 		$containerBuilder = new ContainerBuilder();
 		DashboardResourceLocator::registerTags($containerBuilder);
 		$containerBuilder->addCompilerPass(new CompilerPassStub());
@@ -44,9 +60,6 @@ class DashboardResourceLocatorTest extends TestCase {
 
 		$containerBuilder->compile();
 
-		$locatorService = $containerBuilder->get(DashboardResourceLocator::class);
-		$service = $locatorService->get(AdCampaignResourceServiceStub::getServiceLocatorAlias());
-
-		$this->assertInstanceOf(AdCampaignResourceServiceStub::class, $service);
+		return $containerBuilder->get(DashboardResourceLocator::class);
 	}
 }
