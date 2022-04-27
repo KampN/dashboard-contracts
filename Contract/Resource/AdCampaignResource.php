@@ -73,7 +73,7 @@ interface AdCampaignResource extends ResourceInterface {
 		[
 			ResourceInterface::FIELD_NAME => 'cost',
 			ResourceInterface::FIELD_IS_SEGMENT => false,
-			ResourceInterface::FIELD_TYPE => FieldTypeEnum::NUMERIC,
+			ResourceInterface::FIELD_TYPE => FieldTypeEnum::MONEY,
 			ResourceInterface::FIELD_SELECTABLE => true,
 			ResourceInterface::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
