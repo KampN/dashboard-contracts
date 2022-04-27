@@ -2,6 +2,8 @@
 
 namespace Kampn\Dashboard\Contract\Interfaces;
 
+use Kampn\Dashboard\Service\Query\Query;
+
 interface ResourceInterface {
 
 	public const FIELD_NAME = 'name';
@@ -19,4 +21,6 @@ interface ResourceInterface {
 	public static function getServiceType(): string;
 
 	public static function getServiceLocatorAlias(): string;
+
+	public function process(Query $query): array;
 }
