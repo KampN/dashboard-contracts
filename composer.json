@@ -4,8 +4,9 @@
   "type": "library",
   "require": {
     "php": ">=7.4",
+    "ext-json": "*",
     "symfony/dependency-injection": ">=5.4",
-    "ext-json": "*"
+    "symfony/http-foundation": "^6.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
