@@ -18,7 +18,8 @@ class RequesterTest extends TestCase {
 
 	public function testProcess(): void {
 		$query = Query::build([
-			QueryConstant::RESOURCE => AdCampaignResourceServiceStub::getResourceName()
+			QueryConstant::RESOURCE => AdCampaignResourceServiceStub::getResourceName(),
+			QueryConstant::SEGMENTS => ['date']
 		]);
 
 		$response = $this->subject()->process($query, ResourceInterface::SERVICE_TYPE_ROWS);

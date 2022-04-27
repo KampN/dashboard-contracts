@@ -4,12 +4,12 @@
   "type": "library",
   "require": {
     "php": ">=7.4",
-    "symfony/dependency-injection": "^6.0",
+    "symfony/dependency-injection": ">=5.4",
     "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
-    "symfony/var-dumper": "^6.0"
+    "symfony/var-dumper": ">=5.4"
   },
   "autoload": {
     "psr-4": {

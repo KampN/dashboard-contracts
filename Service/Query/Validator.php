@@ -43,11 +43,14 @@ class Validator {
 
 		$field = $resource->getField($operand);
 		if($field === null)
-			throw new QueryException("invalid field $field in filter");
+			throw new QueryException("Invalid field $operand in filter");
 
 		if(!in_array($operator, $field[ResourceInterface::FIELD_OPERATORS]))
-			throw new QueryException("invalid operator $operator for field $operand in filter");
+			throw new QueryException("Invalid operator $operator for field $operand in filter");
 
+		if(!is_array($values))
+			throw new QueryException("Invalid values for field $operand in filter");
+		
 		return true;
 	}
 }
