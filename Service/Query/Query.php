@@ -22,7 +22,7 @@ class Query {
 		$resourceName = $request[QueryConstant::RESOURCE];
 		$query->setResourceName($resourceName);
 
-		$segments = $request[QueryConstant::SEGMENTS];
+		$segments = $request[QueryConstant::SEGMENTS] ?? [];
 		$query->setSegments($segments);
 
 		$startDate = $request[QueryConstant::START_DATE] ?? null;

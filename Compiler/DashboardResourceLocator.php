@@ -2,8 +2,9 @@
 
 namespace Kampn\Dashboard\Compiler;
 
-use App\Template\Interfaces\RegistryLocatorInterface;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
+use Kampn\Dashboard\Service\Query\Query;
+use Kampn\Dashboard\Service\ResourceServiceTrait;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -51,11 +52,15 @@ class DashboardResourceLocator {
 		$this->locator = $locator;
 	}
 
-	public function exists($service): bool {
+	public function exists(string $service): bool {
 		return $this->locator->has($service);
 	}
 
-	public function get($service) {
+	public function get(string $service) {
 		return $this->locator->get($service);
+	}
+
+	public function getResourceService(Query $query, string $type) {
+		return $this->get(ResourceServiceTrait::buildServiceName($query->getResourceName(), $type));
 	}
 }
