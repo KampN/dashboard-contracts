@@ -60,7 +60,7 @@ class DashboardResourceLocator {
 		return $this->locator->get($service);
 	}
 
-	public function getResourceService(Query $query, string $type) {
+	public function getResourceService(Query $query, string $type): ResourceInterface {
 		return $this->get(ResourceServiceTrait::buildServiceName($query->getResourceName(), $type));
 	}
 }
