@@ -3,6 +3,7 @@
 namespace Kampn\Dashboard\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
+use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 use Kampn\Dashboard\Service\Exception\QueryException;
 
@@ -45,12 +46,12 @@ class Validator {
 		if($field === null)
 			throw new QueryException("Invalid field $operand in filter");
 
-		if(!in_array($operator, $field[ResourceInterface::FIELD_OPERATORS]))
+		if(!in_array($operator, $field[ResourceFieldConstant::FIELD_OPERATORS]))
 			throw new QueryException("Invalid operator $operator for field $operand in filter");
 
 		if(!is_array($values))
 			throw new QueryException("Invalid values for field $operand in filter");
-		
+
 		return true;
 	}
 }
