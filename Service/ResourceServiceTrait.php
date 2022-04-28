@@ -2,7 +2,7 @@
 
 namespace Kampn\Dashboard\Service;
 
-use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
+use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
 
 trait ResourceServiceTrait {
 	public static function getResourceName(): string {
@@ -23,7 +23,7 @@ trait ResourceServiceTrait {
 
 	public function getField(string $fieldName): ?array {
 		foreach($this->getFields() as $field)
-			if($field[ResourceInterface::FIELD_NAME] === $fieldName)
+			if($field[ResourceFieldConstant::FIELD_NAME] === $fieldName)
 				return $field;
 
 		return null;
@@ -32,14 +32,14 @@ trait ResourceServiceTrait {
 	public function getSegments(): array {
 		return array_filter(
 			$this->getFields(),
-			fn($field) => ($field[ResourceInterface::FIELD_IS_SEGMENT] ?? false) === true
+			fn($field) => ( $field[ResourceFieldConstant::FIELD_IS_SEGMENT] ?? false ) === true
 		);
 	}
 
 	public function getSegment(string $segment): ?array {
 		foreach($this->getFields() as $field) {
-			if($field[ResourceInterface::FIELD_NAME] === $segment
-				&& ($field[ResourceInterface::FIELD_IS_SEGMENT] ?? false) === true)
+			if($field[ResourceFieldConstant::FIELD_NAME] === $segment
+				&& ( $field[ResourceFieldConstant::FIELD_IS_SEGMENT] ?? false ) === true)
 				return $field;
 		}
 
