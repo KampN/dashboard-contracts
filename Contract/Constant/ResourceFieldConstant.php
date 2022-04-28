@@ -16,7 +16,9 @@ class ResourceFieldConstant {
 			OperatorEnum::EQUAL,
 			OperatorEnum::DIFFERENT,
 			OperatorEnum::LIKE,
-			OperatorEnum::NOT_LIKE
+			OperatorEnum::NOT_LIKE,
+			OperatorEnum::IN,
+			OperatorEnum::NOT_IN,
 		],
 		FieldTypeEnum::NUMERIC  => [
 			OperatorEnum::EQUAL,
@@ -24,7 +26,9 @@ class ResourceFieldConstant {
 			OperatorEnum::GREATER_OR_EQUAL_THAN,
 			OperatorEnum::GREATER_THAN,
 			OperatorEnum::LOWER_OR_EQUAL_THAN,
-			OperatorEnum::LOWER_THAN
+			OperatorEnum::LOWER_THAN,
+			OperatorEnum::IN,
+			OperatorEnum::NOT_IN,
 		],
 		FieldTypeEnum::DATETIME => [
 			OperatorEnum::EQUAL,
