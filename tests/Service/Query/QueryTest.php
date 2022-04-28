@@ -33,6 +33,7 @@ class QueryTest extends TestCase {
 		$this->assertNull($subject->getStartDate());
 		$this->assertEquals('2022-04-27', $subject->getEndDate()->format('Y-m-d'));
 		$this->assertEquals(['day', 'operation_name'], $subject->getSegments());
+		$this->assertTrue($subject->hasSegment('day'));
 		$this->assertEquals($filters, $subject->getFilters());
 	}
 }

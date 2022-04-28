@@ -48,6 +48,10 @@ class Query {
 		$this->resourceName = $resourceName;
 	}
 
+	public function hasSegment(string $segment): bool {
+		return in_array($segment, $this->segments);
+	}
+
 	public function getSegments(): array {
 		return $this->segments;
 	}
