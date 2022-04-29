@@ -3,7 +3,7 @@
 namespace Kampn\Dashboard\Tests\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\QueryConstant;
-use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
+use Kampn\Dashboard\Contract\Enum\ServiceTypeEnum;
 use Kampn\Dashboard\Service\Query\Query;
 use Kampn\Dashboard\Service\Query\Requester;
 use Kampn\Dashboard\Tests\Compiler\DashboardResourceLocatorTest;
@@ -22,7 +22,7 @@ class RequesterTest extends TestCase {
 			QueryConstant::SEGMENTS => ['date']
 		]);
 
-		$response = $this->subject()->process($query, ResourceInterface::SERVICE_TYPE_ROWS);
+		$response = $this->subject()->process($query, ServiceTypeEnum::ROWS);
 		$this->assertEquals(['test'], $response);
 	}
 }

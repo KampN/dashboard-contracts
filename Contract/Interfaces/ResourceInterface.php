@@ -6,10 +6,6 @@ use Kampn\Dashboard\Service\Query\Query;
 
 interface ResourceInterface {
 
-
-	public const SERVICE_TYPE_ROWS = 'rows';
-	public const SERVICE_TYPE_TOTAL = 'total';
-
 	public static function getResourceName(): string;
 
 	public static function getServiceType(): string;
