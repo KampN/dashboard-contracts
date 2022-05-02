@@ -14,7 +14,7 @@ class AdCampaignResourceServiceStub implements AdCampaignResource {
 		return ServiceTypeEnum::ROWS;
 	}
 
-	public function process(Query $query, ?array $options): array {
+	public function process(Query $query, array $options = []): array {
 		return ['test'];
 	}
 }
