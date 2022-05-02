@@ -30,7 +30,7 @@ interface AdCampaignResource extends ResourceInterface {
 	public const FIELD_END_DATE = 'end_date';
 	public const FIELD_COST = 'cost';
 	public const FIELD_IMPRESSIONS = 'impressions';
-	public const FIELD_CONV_VALUE = 'conv_Value';
+	public const FIELD_CONV_VALUE = 'conv_value';
 	public const FIELD_CONVERSIONS = 'conversions';
 	public const FIELD_CLICKS = 'clicks';
 
