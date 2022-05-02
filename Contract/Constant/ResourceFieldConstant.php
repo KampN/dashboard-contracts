@@ -27,7 +27,7 @@ class ResourceFieldConstant {
 			OperatorEnum::IN,
 			OperatorEnum::NOT_IN,
 		],
-		FieldTypeEnum::NUMERIC  => [
+		FieldTypeEnum::INTEGER => [
 			OperatorEnum::EQUAL,
 			OperatorEnum::DIFFERENT,
 			OperatorEnum::GREATER_OR_EQUAL_THAN,
