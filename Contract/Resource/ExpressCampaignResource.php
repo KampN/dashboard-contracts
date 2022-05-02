@@ -17,8 +17,6 @@ interface ExpressCampaignResource extends ResourceInterface {
 	public const COLLAPSIBLE = true;
 
 	public const SUPPORT_SOURCES = [
-		SourceEnum::GOOGLE_ADS,
-		SourceEnum::FACEBOOK_ADS,
 		SourceEnum::EXPRESS,
 	];
 
@@ -33,6 +31,9 @@ interface ExpressCampaignResource extends ResourceInterface {
 	public const FIELD_COST = 'cost';
 	public const FIELD_IMPRESSIONS = 'impressions';
 	public const FIELD_LEAD_CONVERSIONS = 'lead_conversions';
+	public const FIELD_LEAD_FORM_CONVERSIONS = 'lead_form_conversions';
+	public const FIELD_LEAD_PHONE_CONVERSIONS = 'lead_phone_conversions';
+	public const FIELD_LEAD_PLATFORM_CONVERSIONS = 'lead_platform_conversions';
 	public const FIELD_CLICKS = 'clicks';
 
 	public const FIELDS = [
@@ -115,6 +116,13 @@ interface ExpressCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
 		[
+			ResourceFieldConstant::FIELD_NAME       => self::FIELD_CLICKS,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+		],
+		[
 			ResourceFieldConstant::FIELD_NAME       => self::FIELD_LEAD_CONVERSIONS,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
@@ -122,12 +130,26 @@ interface ExpressCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME       => self::FIELD_CLICKS,
+			ResourceFieldConstant::FIELD_NAME       => self::FIELD_LEAD_FORM_CONVERSIONS,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
-		]
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME       => self::FIELD_LEAD_PHONE_CONVERSIONS,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME       => self::FIELD_LEAD_PLATFORM_CONVERSIONS,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+		],
 	];
 
 }
