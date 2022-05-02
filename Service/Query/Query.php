@@ -2,6 +2,7 @@
 
 namespace Kampn\Dashboard\Service\Query;
 
+use Kampn\Dashboard\Contract\Constant\FilterConstant;
 use Kampn\Dashboard\Contract\Constant\QueryConstant;
 
 class Query {
@@ -46,6 +47,10 @@ class Query {
 
 	public function setResourceName(string $resourceName): void {
 		$this->resourceName = $resourceName;
+	}
+
+	public function addFilter(string $operand, string $operator, array $values): void {
+		$this->filters[] = [FilterConstant::OPERAND => $operand, FilterConstant::OPERATOR => $operator, FilterConstant::VALUES => $values];
 	}
 
 	public function hasSegment(string $segment): bool {
