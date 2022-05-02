@@ -22,6 +22,7 @@ interface AdCampaignResource extends ResourceInterface {
 	];
 
 	public const FIELD_AD_CAMPAIGN_ID = 'ad_campaign_id';
+	public const FIELD_AD_ACCOUNT_ID = 'ad_account_id';
 	public const FIELD_DATE = 'date';
 	public const FIELD_NAME = 'name';
 	public const FIELD_STATUS = 'status';
@@ -29,11 +30,19 @@ interface AdCampaignResource extends ResourceInterface {
 	public const FIELD_END_DATE = 'end_date';
 	public const FIELD_COST = 'cost';
 	public const FIELD_IMPRESSIONS = 'impressions';
-	public const FIELD_CONV_VALUE = 'conv_Value';
+	public const FIELD_CONV_VALUE = 'conv_value';
 	public const FIELD_CONVERSIONS = 'conversions';
 	public const FIELD_CLICKS = 'clicks';
 
 	public const FIELDS = [
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_ACCOUNT_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Search / Social Account Id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_CAMPAIGN_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Id / Facebook Ads Adset Id',
@@ -69,7 +78,7 @@ interface AdCampaignResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_START_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Start Date / Facebook Ads Adset Start Date. format : ATOM',
-			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
@@ -77,7 +86,7 @@ interface AdCampaignResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_END_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign End Date / Facebook Ads Adset End Date. format : ATOM',
-			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
