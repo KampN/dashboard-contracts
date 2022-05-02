@@ -12,13 +12,13 @@ class Requester {
 		$this->resourceLocator = $resourceLocator;
 	}
 
-	public function process(Query $query, string $type) {
+	public function process(Query $query, string $type, array $options = []) {
 		$service = $this->resourceLocator->getResourceService($query, $type);
 
 		// Throw an exception if invalid
 		$validator = new Validator();
 		$validator->validate($service, $query);
 
-		return $service->process($query);
+		return $service->process($query, $options);
 	}
 }
