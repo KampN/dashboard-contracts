@@ -12,7 +12,7 @@ interface ResourceInterface {
 
 	public static function getServiceLocatorAlias(): string;
 
-	public function process(Query $query): array;
+	public function process(Query $query, ?array $options): array;
 
 	public function getFields(): array;
 
