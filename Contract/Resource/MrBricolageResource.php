@@ -19,97 +19,110 @@ interface MrBricolageResource extends ResourceInterface {
 		SourceEnum::FACEBOOK_ADS,
 	];
 
+	public const FIELD_OPERATION_NAME = 'operation_name';
+	public const FIELD_SHOP_ID = 'shop_id';
+	public const FIELD_AD_CAMPAIGN_ID = 'ad_campaign_id';
+	public const FIELD_DATE = 'date';
+	public const FIELD_NAME = 'name';
+	public const FIELD_START_DATE = 'start_date';
+	public const FIELD_END_DATE = 'end_date';
+	public const FIELD_COST = 'cost';
+	public const FIELD_IMPRESSIONS = 'impressions';
+	public const FIELD_CONV_VALUE = 'conv_Value';
+	public const FIELD_CONVERSIONS = 'conversions';
+	public const FIELD_CLICKS = 'clicks';
+
 	public const FIELDS = [
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'operation_name',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_OPERATION_NAME,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Mr Bricolage Operation name',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'shop_id',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_SHOP_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Mr Bricolage Shop Id',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'ad_campaign_id',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_CAMPAIGN_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Id / Facebook Ads Adset Id',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'date',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::DATETIME,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'name',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_NAME,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Name / Facebook Ads Campaign + Adset Names.',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'start_date',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_START_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Operation start date, format : ATOM',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::DATETIME,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME        => 'end_date',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_END_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Operation end date, format : ATOM',
-			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
-			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::DATETIME,
-			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME       => 'cost',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_COST,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
-			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::MONEY,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::MONEY,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME       => 'impressions',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_IMPRESSIONS,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
-			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::NUMERIC,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME       => 'conv_Value',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CONV_VALUE,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
-			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::NUMERIC,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME       => 'conversions',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CONVERSIONS,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
-			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::NUMERIC,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		],
 		[
-			ResourceFieldConstant::FIELD_NAME       => 'clicks',
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CLICKS,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
-			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::NUMERIC,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::NUMERIC,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::NUMERIC],
 		]
 	];
 }
