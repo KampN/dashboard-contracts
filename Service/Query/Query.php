@@ -48,6 +48,10 @@ class Query {
 		$this->resourceName = $resourceName;
 	}
 
+	public function addFilter(string $operand, string $operator, array $values): void {
+		$this->filters[] = ['operand' => $operand, 'operator' => $operator, 'values' => $values];
+	}
+
 	public function hasSegment(string $segment): bool {
 		return in_array($segment, $this->segments);
 	}
