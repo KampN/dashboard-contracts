@@ -20,7 +20,7 @@ interface ExpressCampaignResource extends ResourceInterface {
 		SourceEnum::EXPRESS,
 	];
 
-	public const FIELD_EXPRESS_CAMPAIGN_ID = 'express_campaign_id';
+	public const FIELD_CAMPAIGN_ID = 'campaign_id';
 	public const FIELD_NETWORK_ID = 'network_id';
 	public const FIELD_FRANCHISE_ID = 'franchise_id';
 	public const FIELD_DATE = 'date';
@@ -38,7 +38,7 @@ interface ExpressCampaignResource extends ResourceInterface {
 
 	public const FIELDS = [
 		[
-			ResourceFieldConstant::FIELD_NAME        => self::FIELD_EXPRESS_CAMPAIGN_ID,
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_CAMPAIGN_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express campaign id',
 			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
 			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::NUMERIC,

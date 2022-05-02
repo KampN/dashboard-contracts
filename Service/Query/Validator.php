@@ -4,7 +4,6 @@ namespace Kampn\Dashboard\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
 use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
-use Kampn\Dashboard\Contract\Enum\ServiceTypeEnum;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 use Kampn\Dashboard\Service\Exception\QueryException;
 
@@ -13,7 +12,7 @@ class Validator {
 	public function validate(ResourceInterface $resource, Query $query): bool {
 		$segments = $query->getSegments();
 
-		if(empty($segments) && $resource::getServiceType() === ServiceTypeEnum::ROWS) {
+		if(empty($segments)) {
 			throw new QueryException('Missing segments in query');
 		}
 
