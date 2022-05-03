@@ -4,7 +4,7 @@ namespace Kampn\Dashboard\Service\Query\SQL;
 
 interface ResourceSQLQueryBuilderInterface {
 
-	public const PLATFORM_POSTGRES = 'posgres';
+	public const PLATFORM_POSTGRES = 'postgres';
 	public const PLATFORM_MYSQL = 'mysql';
 
 	public function getFieldsDefs(): array;
