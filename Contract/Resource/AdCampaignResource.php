@@ -22,7 +22,9 @@ interface AdCampaignResource extends ResourceInterface {
 	];
 
 	public const FIELD_AD_CAMPAIGN_ID = 'ad_campaign_id';
+	public const FIELD_AD_CAMPAIGN_LABELS = 'ad_campaign_labels';
 	public const FIELD_AD_ACCOUNT_ID = 'ad_account_id';
+	public const FIELD_AD_ACCOUNT_NAME = 'ad_account_name';
 	public const FIELD_DATE = 'date';
 	public const FIELD_NAME = 'name';
 	public const FIELD_STATUS = 'status';
@@ -44,12 +46,28 @@ interface AdCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_ACCOUNT_NAME,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Account Name / Facebook Ads Account',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_CAMPAIGN_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Id / Facebook Ads Adset Id',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_CAMPAIGN_LABELS,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => [OperatorEnum::LIKE],
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE,
