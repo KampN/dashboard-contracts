@@ -6,11 +6,11 @@ use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
 
 trait ResourceServiceTrait {
 	public static function getResourceName(): string {
-		return self::RESOURCE_NAME;
+		return static::RESOURCE_NAME;
 	}
 
 	public static function getServiceLocatorAlias(): string {
-		return self::buildServiceName(self::getResourceName(), self::getServiceType());
+		return self::buildServiceName(static::getResourceName(), static::getServiceType());
 	}
 
 	public static function buildServiceName(string $resourceName, string $type): string {
@@ -18,7 +18,7 @@ trait ResourceServiceTrait {
 	}
 
 	public function getFields(): array {
-		return self::FIELDS;
+		return static::FIELDS;
 	}
 
 	public function getField(string $fieldName): ?array {
