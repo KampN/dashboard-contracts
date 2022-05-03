@@ -28,11 +28,11 @@ class Query {
 
 		$startDate = $request[QueryConstant::START_DATE] ?? null;
 		if($startDate)
-			$query->setStartDate(\DateTime::createFromFormat(DATE_ATOM, $startDate));
+			$query->setStartDate(\DateTime::createFromFormat(\DateTime::ATOM, $startDate));
 
 		$endDate = $request[QueryConstant::END_DATE] ?? null;
 		if($endDate)
-			$query->setEndDate(\DateTime::createFromFormat(DATE_ATOM, $endDate));
+			$query->setEndDate(\DateTime::createFromFormat(\DateTime::ATOM, $endDate));
 
 		$filters = $request[QueryConstant::FILTERS] ?? null;
 		if($filters)
