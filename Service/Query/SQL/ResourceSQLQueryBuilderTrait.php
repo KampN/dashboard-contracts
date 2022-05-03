@@ -54,12 +54,14 @@ trait ResourceSQLQueryBuilderTrait {
 
 	public function buildGroupBy(Query $query): string {
 		$fields = $this->getSelectFields($query);
+		$fieldsDefs = $this->getFieldsDefs();
 		$columns = [];
 
 		foreach($fields as $i => $field) {
 			$name = $field[ResourceFieldConstant::FIELD_NAME];
 			$agg = in_array($name, $this->getAggDefs(), false);
-			if(!$agg) $columns[] = $name;
+			$column = $fieldsDefs[$name];
+			if(!$agg) $columns[] = $column;
 		}
 
 		return 'group by ' . implode(', ', $columns);
