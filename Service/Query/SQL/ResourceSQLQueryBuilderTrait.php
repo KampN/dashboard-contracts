@@ -18,16 +18,44 @@ trait ResourceSQLQueryBuilderTrait {
 		$this->aliasGenerator = $aliasGenerator;
 	}
 
-	public function prepare(Query $query, string $from, string $limit = ''): array {
+	public function prepare(Query $query, string $from, ?int $limit = null, int $offset = 0): array {
 		$select = $this->buildSelectPart($query);
 		$groupBy = $this->buildGroupBy($query);
 
-		[$where, $having, $parameters] = $this->buildConditions($query);
-		$orderBy = '';
-		$sql = implode(' ', [$select, $from, $where, $groupBy, $having, $orderBy, $limit]);
+		$conditions = $this->buildConditions($query);
 
-		return [$sql, $parameters];
+		return [
+			'select' => $select,
+			'groupBy' => $groupBy,
+			'from' => $from,
+			'where' => $conditions['where'],
+			'having' => $conditions['having'],
+			'orderBy' => [],
+			'offset' => $offset,
+			'limit' => $limit,
+			'parameters' => $conditions['parameters'],
+		];
 	}
+
+	public function computeSQLParts(array $sqlParts): string {
+		$sql = '';
+		$sql .= 'select ' . implode(',', $sqlParts['select'] ?? []);
+		$sql .= ' from ' . $sqlParts['from'] ?? '';
+		if(!empty($sqlParts['where'] ?? []))
+			$sql .= ' where ' . implode(' and ', $sqlParts['where']);
+		if(!empty($sqlParts['groupBy'] ?? []))
+			$sql .= ' group by ' . implode(',', $sqlParts['groupBy']);
+		if(!empty($sqlParts['having'] ?? []))
+			$sql .= ' having ' . implode(' and ', $sqlParts['having']);
+		if(!empty($sqlParts['orderBy'] ?? []))
+			$sql .= ' order by ' . implode(',', $sqlParts['orderBy']);
+		if(($sqlParts['limit'] ?? null) !== null)
+			$sql .= " limit " . $sqlParts['limit'];
+		if(($sqlParts['offset'] ?? null) !== null)
+			$sql .= " offset " . $sqlParts['offset'];
+		return $sql;
+	}
+
 
 	protected function getSelectFields(Query $query): array {
 		$fields = array_merge(...array_values(array_filter($this->getSegmentDefs(), fn($key) => in_array($key, $query->getSegments()), ARRAY_FILTER_USE_KEY)));
@@ -35,7 +63,7 @@ trait ResourceSQLQueryBuilderTrait {
 		return array_values(array_filter($this->getFields(), fn($field) => in_array($field[ResourceFieldConstant::FIELD_NAME], $availableFields)));
 	}
 
-	public function buildSelectPart(Query $query): string {
+	public function buildSelectPart(Query $query): array {
 		$fields = $this->getSelectFields($query);
 		$fieldsDefs = $this->getFieldsDefs();
 		$columns = [];
@@ -49,10 +77,10 @@ trait ResourceSQLQueryBuilderTrait {
 			$columns[] = "$column as $name";
 		}
 
-		return 'select ' . implode(', ', $columns);
+		return $columns;
 	}
 
-	public function buildGroupBy(Query $query): string {
+	public function buildGroupBy(Query $query): array {
 		$fields = $this->getSelectFields($query);
 		$fieldsDefs = $this->getFieldsDefs();
 		$columns = [];
@@ -64,7 +92,7 @@ trait ResourceSQLQueryBuilderTrait {
 			if(!$agg) $columns[] = $column;
 		}
 
-		return 'group by ' . implode(', ', $columns);
+		return $columns;
 	}
 
 	public function buildConditions(Query $query): array {
@@ -79,9 +107,9 @@ trait ResourceSQLQueryBuilderTrait {
 		}
 
 		return [
-			empty($where) ? '' : 'where ' . implode(' and ', $where),
-			empty($having) ? '' : 'having ' . implode(' and ', $having),
-			array_merge(...$parameters)
+			'where' => $where,
+			'having' => $having,
+			'parameters' => array_merge(...$parameters)
 		];
 	}
 
