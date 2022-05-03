@@ -38,22 +38,22 @@ trait ResourceSQLQueryBuilderTrait {
 	}
 
 	public function computeSQLParts(array $sqlParts): string {
-		$sql = '';
-		$sql .= 'select ' . implode(',', $sqlParts['select'] ?? []);
-		$sql .= ' from ' . $sqlParts['from'] ?? '';
+		$sql = [];
+		$sql[] = 'select ' . implode(',', $sqlParts['select'] ?? []);
+		$sql[] = ' from ' . $sqlParts['from'] ?? '';
 		if(!empty($sqlParts['where'] ?? []))
-			$sql .= ' where ' . implode(' and ', $sqlParts['where']);
+			$sql[] = ' where ' . implode(' and ', $sqlParts['where']);
 		if(!empty($sqlParts['groupBy'] ?? []))
-			$sql .= ' group by ' . implode(',', $sqlParts['groupBy']);
+			$sql[] = ' group by ' . implode(',', $sqlParts['groupBy']);
 		if(!empty($sqlParts['having'] ?? []))
-			$sql .= ' having ' . implode(' and ', $sqlParts['having']);
+			$sql[] = ' having ' . implode(' and ', $sqlParts['having']);
 		if(!empty($sqlParts['orderBy'] ?? []))
-			$sql .= ' order by ' . implode(',', $sqlParts['orderBy']);
+			$sql[] = ' order by ' . implode(',', $sqlParts['orderBy']);
 		if(($sqlParts['limit'] ?? null) !== null)
-			$sql .= " limit " . $sqlParts['limit'];
+			$sql[] = " limit " . $sqlParts['limit'];
 		if(($sqlParts['offset'] ?? null) !== null)
-			$sql .= " offset " . $sqlParts['offset'];
-		return $sql;
+			$sql[] = " offset " . $sqlParts['offset'];
+		return implode(' ', $sql);
 	}
 
 
