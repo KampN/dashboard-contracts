@@ -42,6 +42,9 @@ trait ResourceSQLQueryBuilderTrait {
 
 		foreach($fields as $field) {
 			$name = $field[ResourceFieldConstant::FIELD_NAME];
+			$selectable = $field[ResourceFieldConstant::FIELD_SELECTABLE] ?? true;
+			if($selectable === false) continue;
+
 			$column = $fieldsDefs[$name];
 			$columns[] = "$column as $name";
 		}
@@ -56,7 +59,7 @@ trait ResourceSQLQueryBuilderTrait {
 		foreach($fields as $i => $field) {
 			$name = $field[ResourceFieldConstant::FIELD_NAME];
 			$agg = in_array($name, $this->getAggDefs(), false);
-			if(!$agg) $columns[] = $i + 1;
+			if(!$agg) $columns[] = $name;
 		}
 
 		return 'group by ' . implode(', ', $columns);

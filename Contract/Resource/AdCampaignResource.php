@@ -66,8 +66,8 @@ interface AdCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS => [OperatorEnum::LIKE],
+			ResourceFieldConstant::FIELD_SELECTABLE => false,
+			ResourceFieldConstant::FIELD_OPERATORS => [OperatorEnum::EQUAL],
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE,
