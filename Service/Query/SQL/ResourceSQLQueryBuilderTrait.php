@@ -18,22 +18,21 @@ trait ResourceSQLQueryBuilderTrait {
 		$this->aliasGenerator = $aliasGenerator;
 	}
 
+	public function prepare(Query $query, string $from, string $limit = ''): array {
+		$select = $this->buildSelectPart($query);
+		$groupBy = $this->buildGroupBy($query);
+
+		[$where, $having, $parameters] = $this->buildConditions($query);
+		$orderBy = '';
+		$sql = implode(' ', [$select, $from, $where, $groupBy, $having, $orderBy, $limit]);
+
+		return [$sql, $parameters];
+	}
+
 	protected function getSelectFields(Query $query): array {
 		$fields = array_merge(...array_values(array_filter($this->getSegmentDefs(), fn($key) => in_array($key, $query->getSegments()), ARRAY_FILTER_USE_KEY)));
 		$availableFields = array_unique(array_merge($fields, $this->getAggDefs()));
 		return array_values(array_filter($this->getFields(), fn($field) => in_array($field[ResourceFieldConstant::FIELD_NAME], $availableFields)));
-	}
-
-	public function prepare(Query $query, string $from, string $limit = ''): array {
-		$select = $this->buildSelectPart($query);
-
-		$groupBy = $this->buildGroupBy($query);
-		[$where, $having, $parameters] = $this->buildConditions($query);
-
-		$orderBy = '';
-
-		$sql = implode(' ', [$select, $from, $where, $groupBy, $having, $orderBy, $limit]);
-		return [$sql, $parameters];
 	}
 
 	public function buildSelectPart(Query $query): string {
@@ -100,11 +99,13 @@ trait ResourceSQLQueryBuilderTrait {
 				break;
 
 			case OperatorEnum::LIKE:
-				$sql = "$operand ilike :$alias";
+				$like = $this->getPlatform() === self::PLATFORM_POSTGRES ? 'ilike' : 'like';
+				$sql = "$operand $like :$alias";
 				$params[$alias] = "%$values[0]%";
 				break;
 			case OperatorEnum::NOT_LIKE:
-				$sql = "$operand not ilike :$alias";
+				$like = $this->getPlatform() === self::PLATFORM_POSTGRES ? 'ilike' : 'like';
+				$sql = "$operand not $like :$alias";
 				$params[$alias] = "%$values[0]%";
 				break;
 
