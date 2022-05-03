@@ -74,8 +74,8 @@ trait ResourceSQLQueryBuilderTrait {
 		}
 
 		return [
-			'where ' . implode(' and ', $where),
-			'having ' . implode(' and ', $having),
+			empty($where) ? '' : 'where ' . implode(' and ', $where),
+			empty($having) ? '' : 'having ' . implode(' and ', $having),
 			array_merge(...$parameters)
 		];
 	}
