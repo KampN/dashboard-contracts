@@ -15,6 +15,12 @@ class Validator {
 		if(empty($segments)) {
 			throw new QueryException('Missing segments in query');
 		}
+		if($query->getStartDate() === null) {
+			throw new QueryException('Missing start date in query');
+		}
+		if($query->getEndDate() === null) {
+			throw new QueryException('Missing end date in query');
+		}
 
 		foreach($segments as $segment) {
 			if(!$resource->getSegment($segment)) {

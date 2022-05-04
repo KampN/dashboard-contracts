@@ -2,6 +2,8 @@
 
 namespace Kampn\Dashboard\Service\Query\SQL;
 
+use Kampn\Dashboard\Service\Query\Query;
+
 interface ResourceSQLQueryBuilderInterface {
 
 	public const PLATFORM_POSTGRES = 'postgres';
@@ -13,7 +15,7 @@ interface ResourceSQLQueryBuilderInterface {
 
 	public function getAggDefs(): array;
 
-	public function getFrom(): string;
+	public function getFrom(Query $query): string;
 
 	public function getPlatform(): string;
 }
