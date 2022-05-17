@@ -7,8 +7,8 @@ class OperatorEnum {
     public const EQUAL = '=';
     public const DIFFERENT = '!=';
 
-    public const IN = '=';
-    public const NOT_IN = '!=';
+    public const IN = 'in';
+    public const NOT_IN = 'nin';
 
     public const LIKE = 'like';
     public const NOT_LIKE = 'like';
