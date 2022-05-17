@@ -88,4 +88,9 @@ class Query {
 	public function setFilters(array $filters): void {
 		$this->filters = $filters;
 	}
+
+	public function hasFilterOnField(string $operand): bool {
+		$operandFilters = array_filter($this->filters, fn($filter) => $filter[FilterConstant::OPERAND] === $operand);
+		return count($operandFilters) > 0;
+	}
 }
