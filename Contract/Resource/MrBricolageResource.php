@@ -35,6 +35,8 @@ interface MrBricolageResource extends ResourceInterface {
 	public const FIELD_CONV_VALUE = 'conv_value';
 	public const FIELD_CONVERSIONS = 'conversions';
 	public const FIELD_CLICKS = 'clicks';
+	public const FIELD_SINGLE_FREQUENCY = 'single_frequency';
+	public const FIELD_AD_CAMPAIGN_TYPE = 'ad_campaign_type';
 
 	public const FIELDS = [
 		[
@@ -102,6 +104,14 @@ interface MrBricolageResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_CAMPAIGN_TYPE,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Type / Facebook Ads Campaign or Adset Type.',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_START_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Operation start date, format : ATOM',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
@@ -148,6 +158,14 @@ interface MrBricolageResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CLICKS,
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_SINGLE_FREQUENCY,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Single frequency (Facebook Metric only)',
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::INTEGER,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
