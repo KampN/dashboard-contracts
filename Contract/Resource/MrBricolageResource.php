@@ -177,7 +177,7 @@ interface MrBricolageResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Single frequency (Facebook Metric only)',
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::FLOAT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::FLOAT],
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
 		]
 	];
 }
