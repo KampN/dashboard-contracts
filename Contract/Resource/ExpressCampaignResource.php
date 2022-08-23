@@ -29,6 +29,8 @@ interface ExpressCampaignResource extends ResourceInterface {
 	public const FIELD_FRANCHISE_NAME = 'franchise_name';
 	public const FIELD_AD_PLATFORM = 'ad_platform';
 	public const FIELD_STATUS = 'status';
+	public const FIELD_LEAD_STATUS = 'lead_status';
+	public const FIELD_PROVISIONAL_BUDGET = 'provisional_budget';
 	public const FIELD_COST = 'cost';
 	public const FIELD_IMPRESSIONS = 'impressions';
 	public const FIELD_LEAD_CONVERSIONS = 'lead_conversions';
@@ -36,6 +38,7 @@ interface ExpressCampaignResource extends ResourceInterface {
 	public const FIELD_LEAD_PHONE_CONVERSIONS = 'lead_phone_conversions';
 	public const FIELD_LEAD_PLATFORM_CONVERSIONS = 'lead_platform_conversions';
 	public const FIELD_CLICKS = 'clicks';
+
 
 	public const FIELDS = [
 		[
@@ -79,6 +82,14 @@ interface ExpressCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_OPERATORS   => [OperatorEnum::EQUAL, OperatorEnum::DIFFERENT],
 		],
 		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_LEAD_STATUS,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Lead status',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => false,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_NAME,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express Campaign Name',
 			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
@@ -109,6 +120,13 @@ interface ExpressCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE  => true,
 			ResourceFieldConstant::FIELD_OPERATORS   => [OperatorEnum::EQUAL, OperatorEnum::DIFFERENT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME       => self::FIELD_PROVISIONAL_BUDGET,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::MONEY,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME       => self::FIELD_COST,
