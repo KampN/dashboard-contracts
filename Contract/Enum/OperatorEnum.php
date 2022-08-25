@@ -18,4 +18,7 @@ class OperatorEnum {
     public const LOWER_THAN = '<';
     public const LOWER_OR_EQUAL_THAN = '<=';
 
+    public const BETWEEN = 'between';
+    public const NOT_BETWEEN = 'not between';
+
 }
