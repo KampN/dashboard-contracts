@@ -28,6 +28,7 @@ interface MrBricolageResource extends ResourceInterface {
 	public const FIELD_AD_ACCOUNT_ID = 'ad_account_id';
 	public const FIELD_AD_ACCOUNT_NAME = 'ad_account_name';
 	public const FIELD_DATE = 'date';
+	public const FIELD_DATE_MONTH = 'date_month';
 	public const FIELD_NAME = 'name';
 	public const FIELD_START_DATE = 'start_date';
 	public const FIELD_END_DATE = 'end_date';
@@ -99,6 +100,14 @@ interface MrBricolageResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE_MONTH,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM, day always at 01',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
