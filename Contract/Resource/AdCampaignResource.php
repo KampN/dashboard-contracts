@@ -48,7 +48,7 @@ interface AdCampaignResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_AD_ACCOUNT_NAME,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Account Name / Facebook Ads Account',
-			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
