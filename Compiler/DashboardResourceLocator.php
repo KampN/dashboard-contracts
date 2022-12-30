@@ -4,7 +4,7 @@ namespace Kampn\Dashboard\Compiler;
 
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 use Kampn\Dashboard\Service\Query\Query;
-use Kampn\Dashboard\Service\ResourceServiceTrait;
+use Kampn\Dashboard\Service\Util\ServiceNameBuilder;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -61,6 +61,6 @@ class DashboardResourceLocator {
 	}
 
 	public function getResourceService(Query $query, string $type): ResourceInterface {
-		return $this->get(ResourceServiceTrait::buildServiceName($query->getResourceName(), $type));
+		return $this->get(ServiceNameBuilder::build($query->getResourceName(), $type));
 	}
 }
