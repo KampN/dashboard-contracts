@@ -68,7 +68,7 @@ class AdCampaignResourceServiceStub implements AdCampaignResource, ResourceSQLQu
 		];
 	}
 
-	public function getFrom(): string {
+	public function getFrom(Query $query): string {
 		return 'from table';
 	}
 
