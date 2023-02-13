@@ -2,6 +2,8 @@
 
 namespace Kampn\Dashboard\Tests\Service\Query;
 
+use DateTime;
+use DateTimeInterface;
 use Kampn\Dashboard\Contract\Constant\QueryConstant;
 use Kampn\Dashboard\Contract\Enum\ServiceTypeEnum;
 use Kampn\Dashboard\Service\Query\Query;
@@ -19,6 +21,8 @@ class RequesterTest extends TestCase {
 	public function testProcess(): void {
 		$query = Query::build([
 			QueryConstant::RESOURCE => AdCampaignResourceServiceStub::getResourceName(),
+            QueryConstant::START_DATE => (new DateTime())->format(DateTimeInterface::ATOM),
+            QueryConstant::END_DATE => (new DateTime())->modify('+30d')->format(DateTimeInterface::ATOM),
 			QueryConstant::SEGMENTS => ['date']
 		]);
 

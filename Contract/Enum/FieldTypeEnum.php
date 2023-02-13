@@ -9,5 +9,6 @@ class FieldTypeEnum {
     public const MONEY = 'money';
     public const TEXT = 'text';
     public const DATETIME = 'datetime';
+    public const BOOLEAN = 'boolean';
 
 }

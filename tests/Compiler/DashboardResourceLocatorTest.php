@@ -6,6 +6,7 @@ use Kampn\Dashboard\Compiler\DashboardResourceLocator;
 use Kampn\Dashboard\Contract\Constant\QueryConstant;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 use Kampn\Dashboard\Service\Query\Query;
+use Kampn\Dashboard\Service\Query\SQL\AliasGenerator;
 use Kampn\Dashboard\Tests\Configuration\Stub\AdCampaignResourceServiceStub;
 use Kampn\Dashboard\Tests\Configuration\Stub\CompilerPassStub;
 use PHPUnit\Framework\TestCase;
@@ -57,6 +58,12 @@ class DashboardResourceLocatorTest extends TestCase {
 		$definitionService->setAutoconfigured(true);
 		$definitionService->setAutowired(true);
 		$containerBuilder->setDefinition(AdCampaignResourceServiceStub::class, $definitionService);
+
+		$definitionService = new Definition(AliasGenerator::class);
+		$definitionService->setPublic(true);
+		$definitionService->setAutoconfigured(true);
+		$definitionService->setAutowired(true);
+		$containerBuilder->setDefinition(AliasGenerator::class, $definitionService);
 
 		$containerBuilder->compile();
 
