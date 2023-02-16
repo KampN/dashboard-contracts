@@ -26,6 +26,7 @@ interface ExpressCampaignResource extends ResourceInterface
     public const FIELD_DATE = 'date';
     public const FIELD_NAME = 'name';
     public const FIELD_NETWORK_NAME = 'network_name';
+    public const FIELD_NETWORK_SLUG = 'network_slug';
     public const FIELD_FRANCHISE_NAME = 'franchise_name';
     public const FIELD_AD_PLATFORM = 'ad_platform';
     public const FIELD_STATUS = 'status';
@@ -107,6 +108,14 @@ interface ExpressCampaignResource extends ResourceInterface
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_NETWORK_NAME,
             ResourceFieldConstant::FIELD_DESCRIPTION => 'Express Network Name',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_NETWORK_SLUG,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'Express Network Slug',
             ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
             ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
             ResourceFieldConstant::FIELD_SELECTABLE  => true,
