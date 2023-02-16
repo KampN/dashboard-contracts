@@ -11,7 +11,7 @@ class OperatorEnum {
     public const NOT_IN = 'nin';
 
     public const LIKE = 'like';
-    public const NOT_LIKE = 'like';
+    public const NOT_LIKE = 'nlike';
 
     public const GREATER_THAN = '>';
     public const GREATER_OR_EQUAL_THAN = '>=';
