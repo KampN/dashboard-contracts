@@ -101,7 +101,7 @@ class ValidatorTest extends TestCase
         ]);
 
         $this->expectException(QueryException::class);
-        $this->expectExceptionMessage('Invalid operator like for field cost in filter');
+        $this->expectExceptionMessage('Invalid operator nlike for field cost in filter');
 
         $this->subject()->validate($resource, $query);
         $this->assertTrue(true);
