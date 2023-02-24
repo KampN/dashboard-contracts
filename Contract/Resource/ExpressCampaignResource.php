@@ -21,6 +21,7 @@ interface ExpressCampaignResource extends ResourceInterface
     ];
 
     public const FIELD_CAMPAIGN_ID = 'campaign_id';
+    public const FIELD_OPERATION_ID = 'operation_id';
     public const FIELD_NETWORK_ID = 'network_id';
     public const FIELD_FRANCHISE_ID = 'franchise_id';
     public const FIELD_DATE = 'date';
@@ -28,6 +29,7 @@ interface ExpressCampaignResource extends ResourceInterface
     public const FIELD_NETWORK_NAME = 'network_name';
     public const FIELD_NETWORK_SLUG = 'network_slug';
     public const FIELD_FRANCHISE_NAME = 'franchise_name';
+    public const FIELD_OPERATION_NAME = 'operation_name';
     public const FIELD_AD_PLATFORM = 'ad_platform';
     public const FIELD_STATUS = 'status';
     public const FIELD_LEAD_STATUS = 'lead_status';
@@ -52,6 +54,14 @@ interface ExpressCampaignResource extends ResourceInterface
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_CAMPAIGN_ID,
             ResourceFieldConstant::FIELD_DESCRIPTION => 'Express campaign id',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_OPERATION_ID,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'Express operation id',
             ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
             ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
             ResourceFieldConstant::FIELD_SELECTABLE  => true,
@@ -100,6 +110,14 @@ interface ExpressCampaignResource extends ResourceInterface
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_NAME,
             ResourceFieldConstant::FIELD_DESCRIPTION => 'Express Campaign Name',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_OPERATION_NAME,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'Express Operation Name',
             ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
             ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
             ResourceFieldConstant::FIELD_SELECTABLE  => true,
