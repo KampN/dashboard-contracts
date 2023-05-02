@@ -14,7 +14,7 @@ interface ExpressCampaignResource extends ResourceInterface
 
     public const RESOURCE_NAME = ResourceEnum::EXPRESS_CAMPAIGN;
     // Allow Dashboard to merge sources from different sources using segment key as pivot
-    public const COLLAPSIBLE = true;
+    public const COLLAPSIBLE = false;
 
     public const SUPPORT_SOURCES = [
         SourceEnum::EXPRESS,
