@@ -18,7 +18,15 @@ interface ExpressLeadResource extends ResourceInterface {
 	];
 
 	public const FIELD_OPERATION_ID = 'operation_id';
+    public const FIELD_NETWORK_ID = 'network_id';
+    public const FIELD_FRANCHISE_ID = 'franchise_id';
+
+    public const FIELD_NETWORK_NAME = 'network_name';
+    public const FIELD_NETWORK_SLUG = 'network_slug';
+    public const FIELD_FRANCHISE_NAME = 'franchise_name';
 	public const FIELD_OPERATION_NAME = 'operation_name';
+	public const FIELD_OPERATION_TYPE = 'operation_type';
+
 	public const FIELD_LEAD_STATUS = 'lead_status';
 	public const FIELD_NB_PENDING_LEADS = 'nb_pending_leads';
 	public const FIELD_NB_PROCESSED_LEADS = 'nb_processed_leads';
@@ -42,6 +50,54 @@ interface ExpressLeadResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
 			ResourceFieldConstant::FIELD_SELECTABLE  => true,
 			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_NETWORK_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express network id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_FRANCHISE_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express franchise id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_OPERATION_TYPE,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express operation type',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_NETWORK_SLUG,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express network slug',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_NETWORK_NAME,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express network name',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_FRANCHISE_NAME,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express franchise name',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_OPERATION_NAME,
