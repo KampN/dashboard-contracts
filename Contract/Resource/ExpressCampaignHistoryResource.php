@@ -143,7 +143,7 @@ interface ExpressCampaignHistoryResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
 			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::MONEY,
 			ResourceFieldConstant::FIELD_SELECTABLE  => true,
-			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::MONEY],
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
 		],
 	];
 
