@@ -24,6 +24,7 @@ interface ExpressCampaignResource extends ResourceInterface
     public const FIELD_OPERATION_ID = 'operation_id';
     public const FIELD_NETWORK_ID = 'network_id';
     public const FIELD_FRANCHISE_ID = 'franchise_id';
+    public const FIELD_FRANCHISE_LABEL = 'franchise_label';
     public const FIELD_DATE = 'date';
     public const FIELD_NAME = 'name';
     public const FIELD_NETWORK_NAME = 'network_name';
@@ -82,6 +83,14 @@ interface ExpressCampaignResource extends ResourceInterface
             ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
             ResourceFieldConstant::FIELD_SELECTABLE  => true,
             ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_FRANCHISE_LABEL,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'Express franchise label',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
         ],
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_DATE,
