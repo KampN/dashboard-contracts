@@ -28,6 +28,7 @@ interface ExpressLeadResource extends ResourceInterface {
 	public const FIELD_OPERATION_TYPE = 'operation_type';
 
 	public const FIELD_LEAD_STATUS = 'lead_status';
+	public const FIELD_LEAD_STATUS_LABEL = 'lead_status_label';
 	public const FIELD_NB_PENDING_LEADS = 'nb_pending_leads';
 	public const FIELD_NB_PROCESSED_LEADS = 'nb_processed_leads';
 	public const FIELD_NB_LEADS = 'nb_leads';
@@ -111,6 +112,14 @@ interface ExpressLeadResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_LEAD_STATUS,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'lead status',
 			ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_LEAD_STATUS_LABEL,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'lead status label',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
 			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE  => true,
 			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
