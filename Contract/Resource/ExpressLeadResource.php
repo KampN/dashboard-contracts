@@ -24,6 +24,7 @@ interface ExpressLeadResource extends ResourceInterface {
     public const FIELD_NETWORK_NAME = 'network_name';
     public const FIELD_NETWORK_SLUG = 'network_slug';
     public const FIELD_FRANCHISE_NAME = 'franchise_name';
+    public const FIELD_FRANCHISE_STATUS = 'franchise_status';
 	public const FIELD_OPERATION_NAME = 'operation_name';
 	public const FIELD_OPERATION_TYPE = 'operation_type';
 
@@ -95,6 +96,14 @@ interface ExpressLeadResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_FRANCHISE_NAME,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express franchise name',
+			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE  => true,
+			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME        => self::FIELD_FRANCHISE_STATUS,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express franchise status',
 			ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
 			ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE  => true,
