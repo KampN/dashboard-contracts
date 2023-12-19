@@ -6,14 +6,13 @@ use Kampn\Dashboard\Contract\Constant\FilterConstant;
 use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
 use Kampn\Dashboard\Contract\Enum\OperatorEnum;
 use Kampn\Dashboard\Service\Query\Query;
+use Symfony\Contracts\Service\Attribute\Required;
 
 trait ResourceSQLQueryBuilderTrait {
 
 	protected AliasGenerator $aliasGenerator;
 
-	/**
-	 * @required
-	 */
+	#[Required]
 	public function setAliasGenerator(AliasGenerator $aliasGenerator): void {
 		$this->aliasGenerator = $aliasGenerator;
 	}
@@ -25,14 +24,14 @@ trait ResourceSQLQueryBuilderTrait {
 		$conditions = $this->buildConditions($query);
 
 		return [
-			'select'     => $select,
-			'groupBy'    => $groupBy,
-			'from'       => $from,
-			'where'      => $conditions['where'],
-			'having'     => $conditions['having'],
-			'orderBy'    => [],
-			'offset'     => $offset,
-			'limit'      => $limit,
+			'select' => $select,
+			'groupBy' => $groupBy,
+			'from' => $from,
+			'where' => $conditions['where'],
+			'having' => $conditions['having'],
+			'orderBy' => [],
+			'offset' => $offset,
+			'limit' => $limit,
 			'parameters' => $conditions['parameters'],
 		];
 	}
@@ -49,9 +48,9 @@ trait ResourceSQLQueryBuilderTrait {
 			$sql[] = ' having ' . implode(' and ', $sqlParts['having']);
 		if(!empty($sqlParts['orderBy'] ?? []))
 			$sql[] = ' order by ' . implode(',', $sqlParts['orderBy']);
-		if(( $sqlParts['limit'] ?? null ) !== null)
+		if(($sqlParts['limit'] ?? null) !== null)
 			$sql[] = " limit " . $sqlParts['limit'];
-		if(( $sqlParts['offset'] ?? null ) !== null)
+		if(($sqlParts['offset'] ?? null) !== null)
 			$sql[] = " offset " . $sqlParts['offset'];
 		return implode(' ', $sql);
 	}
@@ -107,8 +106,8 @@ trait ResourceSQLQueryBuilderTrait {
 		}
 
 		return [
-			'where'      => $where,
-			'having'     => $having,
+			'where' => $where,
+			'having' => $having,
 			'parameters' => array_merge(...$parameters)
 		];
 	}

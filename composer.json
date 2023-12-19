@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "library",
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.0",
     "ext-json": "*",
     "symfony/dependency-injection": ">=5.4",
     "symfony/http-foundation": ">=5.4"
