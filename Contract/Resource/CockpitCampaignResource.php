@@ -75,10 +75,10 @@ interface CockpitCampaignResource extends ResourceInterface {
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CAMPAIGN_LABELS,
-			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels separate by ","',
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels separate by "|"',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE => false,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => [OperatorEnum::EQUAL],
 		],
 		[
