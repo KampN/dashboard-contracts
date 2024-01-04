@@ -22,7 +22,6 @@ interface CockpitCampaignResource extends ResourceInterface {
 	];
 
 	public const FIELD_CLIENT_ID = 'client_id';
-	public const FIELD_CLIENT_NAME = 'client_name';
 	public const FIELD_ACCOUNT_ID = 'account_id';
 	public const FIELD_ACCOUNT_NAME = 'account_name';
 	public const FIELD_CAMPAIGN_ID = 'campaign_id';
@@ -37,14 +36,6 @@ interface CockpitCampaignResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CLIENT_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Kamp\'n Client Id',
-			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
-			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
-			ResourceFieldConstant::FIELD_SELECTABLE => true,
-			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
-		],
-		[
-			ResourceFieldConstant::FIELD_NAME => self::FIELD_CLIENT_NAME,
-			ResourceFieldConstant::FIELD_DESCRIPTION => 'Kamp\'n Client name',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
@@ -77,7 +68,7 @@ interface CockpitCampaignResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CAMPAIGN_NAME,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Name / Facebook Ads Adset Name',
-			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
@@ -85,7 +76,7 @@ interface CockpitCampaignResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CAMPAIGN_LABELS,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels separate by ","',
-			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => false,
 			ResourceFieldConstant::FIELD_OPERATORS => [OperatorEnum::EQUAL],
