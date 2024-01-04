@@ -31,6 +31,8 @@ interface CockpitCampaignResource extends ResourceInterface {
 	public const FIELD_DATE_MONTH = 'date_month';
 	public const FIELD_COST = 'cost';
 
+	public const LABELS_SEPARATOR = '|';
+
 
 	public const FIELDS = [
 		[
@@ -75,7 +77,7 @@ interface CockpitCampaignResource extends ResourceInterface {
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CAMPAIGN_LABELS,
-			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels separate by "|"',
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Google Ads Campaign Labels / Facebook Ads Adset labels separate by "' . self::LABELS_SEPARATOR . '"',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => false,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
