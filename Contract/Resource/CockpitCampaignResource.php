@@ -28,7 +28,7 @@ interface CockpitCampaignResource extends ResourceInterface {
 	public const FIELD_CAMPAIGN_ID = 'campaign_id';
 	public const FIELD_CAMPAIGN_NAME = 'campaign_name';
 	public const FIELD_CAMPAIGN_LABELS = 'campaign_labels';
-
+	public const FIELD_DATE = 'date';
 	public const FIELD_DATE_MONTH = 'date_month';
 	public const FIELD_COST = 'cost';
 
@@ -89,6 +89,14 @@ interface CockpitCampaignResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => false,
 			ResourceFieldConstant::FIELD_OPERATORS => [OperatorEnum::EQUAL],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE_MONTH,
