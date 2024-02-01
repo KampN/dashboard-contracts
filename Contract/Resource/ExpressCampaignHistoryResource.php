@@ -27,6 +27,7 @@ interface ExpressCampaignHistoryResource extends ResourceInterface {
 	public const FIELD_OPERATION_ID = 'operation_id';
 	public const FIELD_OPERATION_NAME = 'operation_name';
 	public const FIELD_OPERATION_TYPE = 'operation_type';
+	public const FIELD_NB_ACTIVE_FRANCHISES = 'nb_active_franchises';
 	public const FIELD_NB_ACTIVE_CAMPAIGNS = 'nb_active_campaigns';
 	public const FIELD_NB_NEW_CAMPAIGNS = 'nb_new_campaigns';
 	public const FIELD_NB_DONE_CAMPAIGNS = 'nb_done_campaigns';
@@ -113,6 +114,14 @@ interface ExpressCampaignHistoryResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_SELECTABLE  => true,
 			ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
 		],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_NB_ACTIVE_FRANCHISES,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'Number of active franchises',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+        ],
 		[
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_NB_ACTIVE_CAMPAIGNS,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Number of active campaigns',
