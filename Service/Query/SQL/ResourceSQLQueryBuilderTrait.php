@@ -3,6 +3,7 @@
 namespace Kampn\Dashboard\Service\Query\SQL;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
+use Kampn\Dashboard\Contract\Constant\PaginationConstant;
 use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
 use Kampn\Dashboard\Contract\Enum\OperatorEnum;
 use Kampn\Dashboard\Service\Query\Query;
@@ -17,11 +18,15 @@ trait ResourceSQLQueryBuilderTrait {
 		$this->aliasGenerator = $aliasGenerator;
 	}
 
-	public function prepare(Query $query, string $from, ?int $limit = null, int $offset = 0): array {
+	// TODO remove limitDeprecated and offsetDeprecated when all services are migrated
+	public function prepare(Query $query, string $from, ?int $limitDeprecated = null, int $offsetDeprecated = 0): array {
 		$select = $this->buildSelectPart($query);
 		$groupBy = $this->buildGroupBy($query);
-
 		$conditions = $this->buildConditions($query);
+
+		$limit = $this->buildLimit($query);
+		$offset = $this->buildOffset($query);
+		$orderBy = $this->buildOrderBy($query);
 
 		return [
 			'select' => $select,
@@ -29,7 +34,7 @@ trait ResourceSQLQueryBuilderTrait {
 			'from' => $from,
 			'where' => $conditions['where'],
 			'having' => $conditions['having'],
-			'orderBy' => [],
+			'orderBy' => $orderBy,
 			'offset' => $offset,
 			'limit' => $limit,
 			'parameters' => $conditions['parameters'],
@@ -171,4 +176,35 @@ trait ResourceSQLQueryBuilderTrait {
 		return [$sql, $params];
 	}
 
+	public function buildLimit(Query $query): ?int {
+		return $query->getPagination()[PaginationConstant::LIMIT] ?? 1000;
+	}
+
+	public function buildOffset(Query $query): ?int {
+		$limit = $this->buildLimit($query);
+		$page = ($query->getPagination()[PaginationConstant::PAGE] ?? 1);
+		return ($page - 1) * $this->buildLimit($query);
+	}
+
+	public function buildOrderBy(Query $query): array {
+		$fields = $this->getSelectFields($query);
+		$fieldsDefs = $this->getFieldsDefs();
+		$aggDefs = $this->getAggDefs();
+
+		$columns = [];
+
+		foreach($fields as $field) {
+			$name = $field[ResourceFieldConstant::FIELD_NAME];
+			$selectable = $field[ResourceFieldConstant::FIELD_SELECTABLE] ?? true;
+			if($selectable === false) continue;
+
+			$agg = in_array($name, $aggDefs, false);
+			if($agg === true) continue;
+
+			$column = $fieldsDefs[$name];
+			$columns[$column] = "$column asc";
+		}
+
+		return array_values($columns);
+	}
 }
