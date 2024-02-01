@@ -17,6 +17,8 @@ class Query {
 
 	protected array $filters = [];
 
+	protected array $pagination = [];
+
 	public static function build(array $request): self {
 		$query = new self();
 
@@ -27,16 +29,23 @@ class Query {
 		$query->setSegments($segments);
 
 		$startDate = $request[QueryConstant::START_DATE] ?? null;
-		if($startDate)
+		if($startDate) {
 			$query->setStartDate(\DateTime::createFromFormat(\DateTime::ATOM, $startDate));
-
+		}
 		$endDate = $request[QueryConstant::END_DATE] ?? null;
-		if($endDate)
+		if($endDate) {
 			$query->setEndDate(\DateTime::createFromFormat(\DateTime::ATOM, $endDate));
+		}
 
 		$filters = $request[QueryConstant::FILTERS] ?? null;
-		if($filters)
+		if($filters) {
 			$query->setFilters(FiltersEncoder::decode($filters));
+		}
+
+		$pagination = $request[QueryConstant::PAGINATION] ?? null;
+		if($pagination) {
+			$query->setPagination($pagination);
+		}
 
 		return $query;
 	}
@@ -92,5 +101,13 @@ class Query {
 	public function hasFilterOnField(string $operand): bool {
 		$operandFilters = array_filter($this->filters, fn($filter) => $filter[FilterConstant::OPERAND] === $operand);
 		return count($operandFilters) > 0;
+	}
+
+	public function getPagination(): array {
+		return $this->pagination;
+	}
+
+	public function setPagination(array $pagination): void {
+		$this->pagination = $pagination;
 	}
 }

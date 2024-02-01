@@ -3,6 +3,7 @@
 namespace Kampn\Dashboard\Tests\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
+use Kampn\Dashboard\Contract\Constant\PaginationConstant;
 use Kampn\Dashboard\Contract\Constant\QueryConstant;
 use Kampn\Dashboard\Contract\Enum\OperatorEnum;
 use Kampn\Dashboard\Service\Query\FiltersEncoder;
@@ -19,12 +20,18 @@ class QueryTest extends TestCase {
 			]
 		];
 
+		$pagination = [
+			PaginationConstant::LIMIT => 100,
+			PaginationConstant::PAGE => 2,
+		];
+
 		$request = [
 			QueryConstant::RESOURCE => 'resource_name',
 			QueryConstant::START_DATE => null,
 			QueryConstant::END_DATE => '2022-04-27T13:16:05+00:00',
 			QueryConstant::SEGMENTS => ['day', 'operation_name'],
-			QueryConstant::FILTERS => FiltersEncoder::encode($filters)
+			QueryConstant::FILTERS => FiltersEncoder::encode($filters),
+			QueryConstant::PAGINATION => $pagination
 		];
 
 		$subject = Query::build($request);
@@ -35,5 +42,6 @@ class QueryTest extends TestCase {
 		$this->assertEquals(['day', 'operation_name'], $subject->getSegments());
 		$this->assertTrue($subject->hasSegment('day'));
 		$this->assertEquals($filters, $subject->getFilters());
+		$this->assertEquals($pagination, $subject->getPagination());
 	}
 }
