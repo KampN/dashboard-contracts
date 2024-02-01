@@ -3,6 +3,7 @@
 namespace Kampn\Dashboard\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
+use Kampn\Dashboard\Contract\Constant\PaginationConstant;
 use Kampn\Dashboard\Contract\Constant\ResourceFieldConstant;
 use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 use Kampn\Dashboard\Service\Exception\QueryException;
@@ -32,6 +33,10 @@ class Validator {
 			$this->validateFilter($resource, $filter);
 		}
 
+		if($query->getPagination()) {
+			$this->validatePagination($query->getPagination());
+		}
+
 		return true;
 	}
 
@@ -52,11 +57,33 @@ class Validator {
 		if($field === null)
 			throw new QueryException("Invalid field $operand in filter");
 
-		if(!in_array($operator, $field[ResourceFieldConstant::FIELD_OPERATORS]))
+		if(!in_array($operator, $field[ResourceFieldConstant::FIELD_OPERATORS], true))
 			throw new QueryException("Invalid operator $operator for field $operand in filter");
 
 		if(!is_array($values))
 			throw new QueryException("Invalid values for field $operand in filter");
+
+		return true;
+	}
+
+	public function validatePagination(array $pagination): bool {
+		$limit = $pagination[PaginationConstant::LIMIT] ?? null;
+		if($limit === null) {
+			throw new QueryException('Missing limit in pagination');
+		}
+
+		if($limit <= 0) {
+			throw new QueryException('Invalid limit in pagination minimum is 1');
+		}
+
+		$page = $pagination[PaginationConstant::PAGE] ?? null;
+		if($page === null) {
+			throw new QueryException('Missing page in pagination');
+		}
+
+		if($page <= 0) {
+			throw new QueryException('Invalid page in pagination minimum is 1');
+		}
 
 		return true;
 	}

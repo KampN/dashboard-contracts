@@ -3,6 +3,7 @@
 namespace Kampn\Dashboard\Service\Query;
 
 use Kampn\Dashboard\Contract\Constant\FilterConstant;
+use Kampn\Dashboard\Contract\Constant\PaginationConstant;
 use Kampn\Dashboard\Contract\Constant\QueryConstant;
 
 class Query {
@@ -42,7 +43,7 @@ class Query {
 			$query->setFilters(FiltersEncoder::decode($filters));
 		}
 
-		$pagination = $request[QueryConstant::PAGINATION] ?? null;
+		$pagination = $request[QueryConstant::PAGINATION] ?? [PaginationConstant::LIMIT => 1000, PaginationConstant::PAGE => 1];
 		if($pagination) {
 			$query->setPagination($pagination);
 		}

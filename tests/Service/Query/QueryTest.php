@@ -44,4 +44,26 @@ class QueryTest extends TestCase {
 		$this->assertEquals($filters, $subject->getFilters());
 		$this->assertEquals($pagination, $subject->getPagination());
 	}
+
+
+	public function testBuildWhenNoPagination(): void {
+		$request = [
+			QueryConstant::RESOURCE => 'resource_name',
+			QueryConstant::START_DATE => null,
+			QueryConstant::END_DATE => '2022-04-27T13:16:05+00:00',
+			QueryConstant::SEGMENTS => ['day', 'operation_name']
+		];
+
+		$subject = Query::build($request);
+
+		$this->assertEquals('resource_name', $subject->getResourceName());
+		$this->assertNull($subject->getStartDate());
+		$this->assertEquals('2022-04-27', $subject->getEndDate()->format('Y-m-d'));
+		$this->assertEquals(['day', 'operation_name'], $subject->getSegments());
+		$this->assertTrue($subject->hasSegment('day'));
+		$this->assertEquals([
+			PaginationConstant::LIMIT => 1000,
+			PaginationConstant::PAGE => 1
+		], $subject->getPagination());
+	}
 }
