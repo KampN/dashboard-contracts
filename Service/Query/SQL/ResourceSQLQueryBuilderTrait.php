@@ -172,6 +172,18 @@ trait ResourceSQLQueryBuilderTrait {
 				$sql = "$operand <= :$alias";
 				$params[$alias] = $values[0];
 				break;
+			case OperatorEnum::BETWEEN:
+				$alias2 = $this->aliasGenerator->get();
+				$sql = "$operand between :$alias and :$alias2";
+				$params[$alias] = $values[0];
+				$params[$alias2] = $values[1];
+				break;
+			case OperatorEnum::NOT_BETWEEN:
+				$alias2 = $this->aliasGenerator->get();
+				$sql = "$operand not between :$alias and :$alias2";
+				$params[$alias] = $values[0];
+				$params[$alias2] = $values[1];
+				break;
 		}
 		return [$sql, $params];
 	}
