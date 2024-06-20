@@ -48,6 +48,7 @@ interface ExpressCampaignResource extends ResourceInterface
     public const FIELD_ALL_LEAD_CONVERSIONS = 'all_lead_conversions';
     public const FIELD_EXTERNAL_LEAD_CONVERSIONS = 'external_lead_conversions';
     public const FIELD_CALL_INTENT = 'call_intent';
+    public const FIELD_PAGE_ARRIVALS = 'page_arrivals';
     public const FIELD_COUNT_AD_ACTIVE = 'count_ad_active';
     public const FIELD_COUNT_AD_ERROR = 'count_ad_error';
     public const FIELD_COUNT_ACTIVE_PLATFORM_STRUCTURE = 'count_active_platform_structure';
@@ -293,6 +294,14 @@ interface ExpressCampaignResource extends ResourceInterface
             ResourceFieldConstant::FIELD_SELECTABLE  => true,
             ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
         ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_PAGE_ARRIVALS,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'Page arrivals',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::INTEGER,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+        ]
     ];
 
 }
