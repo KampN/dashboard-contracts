@@ -147,12 +147,26 @@ trait ResourceSQLQueryBuilderTrait {
 				break;
 
 			case OperatorEnum::IN:
-				$sql = "$operand in (:$alias)";
-				$params[$alias] = $values;
+                $placeholders = [];
+                foreach($values as $value) {
+                    $placeholders[] = ":$alias";
+                    $params[$alias] = $value;
+                    $alias = $this->aliasGenerator->get();
+                }
+
+                $placeholder = implode(',', $placeholders);
+				$sql = "$operand in ($placeholder)";
 				break;
 			case OperatorEnum::NOT_IN:
-				$sql = "$operand not in (:$alias)";
-				$params[$alias] = $values;
+                $placeholders = [];
+                foreach($values as $value) {
+                    $placeholders[] = ":$alias";
+                    $params[$alias] = $value;
+                    $alias = $this->aliasGenerator->get();
+                }
+
+                $placeholder = implode(',', $placeholders);
+				$sql = "$operand not in ($placeholder)";
 				break;
 
 			case OperatorEnum::GREATER_THAN:
