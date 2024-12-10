@@ -30,7 +30,7 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 	public const FIELD_FRANCHISE_NAME = 'franchise_name';
 	public const FIELD_FRANCHISE_STATUS = 'franchise_status';
 
-	public const FIELD_CAMPAIGN_ID = 'campaign_name';
+	public const FIELD_CAMPAIGN_ID = 'campaign_id';
 	public const FIELD_CAMPAIGN_NAME = 'campaign_name';
 	public const FIELD_CAMPAIGN_STATUS = 'campaign_status';
 
@@ -38,6 +38,7 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 	public const FIELD_FRANCHISE_LABEL = 'franchise_label';
 	public const FIELD_AD_PLATFORM = 'ad_platform';
 
+	public const FIELD_LEAD_TYPE = 'lead_type';
 	public const FIELD_LEAD_STATUS = 'lead_status';
 	public const FIELD_LEAD_STATUS_LABEL = 'lead_status_label';
 	public const FIELD_NB_LEADS = 'nb_leads';
@@ -166,6 +167,14 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_LEAD_STATUS,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'lead status',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_LEAD_TYPE,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'lead type',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::TEXT,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
