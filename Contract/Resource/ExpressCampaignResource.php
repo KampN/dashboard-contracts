@@ -122,9 +122,9 @@ interface ExpressCampaignResource extends ResourceInterface
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_LEAD_STATUS,
             ResourceFieldConstant::FIELD_DESCRIPTION => 'Lead status',
-            ResourceFieldConstant::FIELD_IS_SEGMENT  => false,
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
             ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::TEXT,
-            ResourceFieldConstant::FIELD_SELECTABLE  => false,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
             ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::TEXT],
         ],
         [
