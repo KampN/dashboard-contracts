@@ -11,7 +11,7 @@ use Kampn\Dashboard\Contract\Interfaces\ResourceInterface;
 
 interface KafoutcheExpressLeadResource extends ResourceInterface {
 
-	public const RESOURCE_NAME = ResourceEnum::EXPRESS_LEAD;
+	public const RESOURCE_NAME = ResourceEnum::KAFOUTCHE_EXPRESS_LEAD;
 	public const COLLAPSIBLE = false;
 
 	public const SUPPORT_SOURCES = [

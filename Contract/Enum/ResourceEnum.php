@@ -9,6 +9,7 @@ class ResourceEnum {
 	public const MR_BRICOLAGE = 'mr_bricolage';
 	public const EXPRESS_CAMPAIGN_HISTORY = 'express_campaign_history';
 	public const EXPRESS_LEAD = 'express_lead';
+	public const KAFOUTCHE_EXPRESS_LEAD = 'kafoutche_express_lead';
 	public const COCKPIT_CAMPAIGN = 'cockpit_campaign';
 
 	public static function cases(): array {
