@@ -45,6 +45,10 @@ interface ExpressCampaignResource extends ResourceInterface
     public const FIELD_CLICKS = 'clicks';
     public const FIELD_INTERACTIONS = 'interactions';
 
+    public const FIELD_BROADCAST_START_DATE = 'broadcast_start_date';
+    public const FIELD_BROADCAST_END_DATE = 'broadcast_end_date';
+    public const FIELD_DURATION_DAYS = 'duration_days';
+
     public const FIELD_ALL_LEAD_CONVERSIONS = 'all_lead_conversions';
     public const FIELD_EXTERNAL_LEAD_CONVERSIONS = 'external_lead_conversions';
     public const FIELD_CALL_INTENT = 'call_intent';
@@ -105,6 +109,22 @@ interface ExpressCampaignResource extends ResourceInterface
         ],
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_DATE,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::DATETIME,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_BROADCAST_START_DATE,
+            ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
+            ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
+            ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::DATETIME,
+            ResourceFieldConstant::FIELD_SELECTABLE  => true,
+            ResourceFieldConstant::FIELD_OPERATORS   => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME        => self::FIELD_BROADCAST_END_DATE,
             ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
             ResourceFieldConstant::FIELD_IS_SEGMENT  => true,
             ResourceFieldConstant::FIELD_TYPE        => FieldTypeEnum::DATETIME,
@@ -186,6 +206,13 @@ interface ExpressCampaignResource extends ResourceInterface
             ResourceFieldConstant::FIELD_NAME       => self::FIELD_COST,
             ResourceFieldConstant::FIELD_IS_SEGMENT => false,
             ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::MONEY,
+            ResourceFieldConstant::FIELD_SELECTABLE => true,
+            ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+        ],
+        [
+            ResourceFieldConstant::FIELD_NAME       => self::FIELD_DURATION_DAYS,
+            ResourceFieldConstant::FIELD_IS_SEGMENT => false,
+            ResourceFieldConstant::FIELD_TYPE       => FieldTypeEnum::INTEGER,
             ResourceFieldConstant::FIELD_SELECTABLE => true,
             ResourceFieldConstant::FIELD_OPERATORS  => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
         ],
