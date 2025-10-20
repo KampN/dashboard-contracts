@@ -18,6 +18,8 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 		SourceEnum::EXPRESS,
 	];
 
+	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
+
 	public const FIELD_OPERATION_ID = 'operation_id';
 	public const FIELD_OPERATION_NAME = 'operation_name';
 	public const FIELD_OPERATION_TYPE = 'operation_type';
@@ -51,6 +53,14 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
 			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CORE_CLIENT_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Kampn core client id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
 		],
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_CAMPAIGN_ID,

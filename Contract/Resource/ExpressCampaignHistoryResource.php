@@ -32,8 +32,17 @@ interface ExpressCampaignHistoryResource extends ResourceInterface {
 	public const FIELD_NB_NEW_CAMPAIGNS = 'nb_new_campaigns';
 	public const FIELD_NB_DONE_CAMPAIGNS = 'nb_done_campaigns';
 	public const FIELD_MOST_COMMON_MEDIA = 'most_common_media';
+	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
 
 	public const FIELDS = [
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CORE_CLIENT_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Kampn core client id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
 		[
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_OPERATION_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express operation id',

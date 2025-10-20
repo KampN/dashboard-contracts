@@ -20,6 +20,7 @@ interface ExpressCampaignResource extends ResourceInterface
         SourceEnum::EXPRESS,
     ];
 
+	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
     public const FIELD_CAMPAIGN_ID = 'campaign_id';
     public const FIELD_OPERATION_ID = 'operation_id';
     public const FIELD_NETWORK_ID = 'network_id';
@@ -59,6 +60,14 @@ interface ExpressCampaignResource extends ResourceInterface
     public const FIELD_FRANCHISE_BLOCKED = 'franchise_blocked';
 
     public const FIELDS = [
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CORE_CLIENT_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Kampn core client id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
         [
             ResourceFieldConstant::FIELD_NAME        => self::FIELD_CAMPAIGN_ID,
             ResourceFieldConstant::FIELD_DESCRIPTION => 'Express campaign id',

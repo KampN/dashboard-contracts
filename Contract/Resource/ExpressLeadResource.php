@@ -17,6 +17,8 @@ interface ExpressLeadResource extends ResourceInterface {
 		SourceEnum::EXPRESS,
 	];
 
+	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
+
 	public const FIELD_OPERATION_ID = 'operation_id';
     public const FIELD_NETWORK_ID = 'network_id';
     public const FIELD_FRANCHISE_ID = 'franchise_id';
@@ -45,6 +47,14 @@ interface ExpressLeadResource extends ResourceInterface {
 	public const FIELD_NB_EXTERNAL_LEADS = 'nb_external_leads';
 
 	public const FIELDS = [
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_CORE_CLIENT_ID,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Kampn core client id',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::INTEGER,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::INTEGER],
+		],
 		[
 			ResourceFieldConstant::FIELD_NAME        => self::FIELD_OPERATION_ID,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'Express operation id',
