@@ -20,7 +20,7 @@ interface ExpressCampaignResource extends ResourceInterface
         SourceEnum::EXPRESS,
     ];
 
-	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
+	public const FIELD_CORE_CLIENT_ID = 'client_id';
     public const FIELD_CAMPAIGN_ID = 'campaign_id';
     public const FIELD_OPERATION_ID = 'operation_id';
     public const FIELD_NETWORK_ID = 'network_id';

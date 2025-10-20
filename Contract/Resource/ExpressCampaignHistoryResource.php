@@ -32,7 +32,7 @@ interface ExpressCampaignHistoryResource extends ResourceInterface {
 	public const FIELD_NB_NEW_CAMPAIGNS = 'nb_new_campaigns';
 	public const FIELD_NB_DONE_CAMPAIGNS = 'nb_done_campaigns';
 	public const FIELD_MOST_COMMON_MEDIA = 'most_common_media';
-	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
+	public const FIELD_CORE_CLIENT_ID = 'client_id';
 
 	public const FIELDS = [
 		[

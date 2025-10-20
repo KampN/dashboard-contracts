@@ -18,7 +18,7 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 		SourceEnum::EXPRESS,
 	];
 
-	public const FIELD_CORE_CLIENT_ID = 'core_client_id';
+	public const FIELD_CORE_CLIENT_ID = 'client_id';
 
 	public const FIELD_OPERATION_ID = 'operation_id';
 	public const FIELD_OPERATION_NAME = 'operation_name';
