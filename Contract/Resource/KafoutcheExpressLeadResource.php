@@ -37,6 +37,8 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 	public const FIELD_CAMPAIGN_STATUS = 'campaign_status';
 
 	public const FIELD_DATE = 'date';
+	public const FIELD_BROADCAST_START_DATE = 'broadcast_start_date';
+	public const FIELD_BROADCAST_END_DATE = 'broadcast_end_date';
 	public const FIELD_FRANCHISE_LABEL = 'franchise_label';
 	public const FIELD_AD_PLATFORM = 'ad_platform';
 
@@ -49,6 +51,22 @@ interface KafoutcheExpressLeadResource extends ResourceInterface {
 		[
 			ResourceFieldConstant::FIELD_NAME => self::FIELD_DATE,
 			ResourceFieldConstant::FIELD_DESCRIPTION => 'format : ATOM',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_BROADCAST_START_DATE,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Broadcast start date, format : ATOM',
+			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
+			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
+			ResourceFieldConstant::FIELD_SELECTABLE => true,
+			ResourceFieldConstant::FIELD_OPERATORS => ResourceFieldConstant::DEFAULT_TYPE_OPERATORS[FieldTypeEnum::DATETIME],
+		],
+		[
+			ResourceFieldConstant::FIELD_NAME => self::FIELD_BROADCAST_END_DATE,
+			ResourceFieldConstant::FIELD_DESCRIPTION => 'Broadcast end date, format : ATOM',
 			ResourceFieldConstant::FIELD_IS_SEGMENT => true,
 			ResourceFieldConstant::FIELD_TYPE => FieldTypeEnum::DATETIME,
 			ResourceFieldConstant::FIELD_SELECTABLE => true,
